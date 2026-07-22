@@ -523,65 +523,94 @@
     /* SERVICES */
 
     .services {
-      background: var(--navy);
+      padding: 82px 0;
+      background: var(--cream);
       color: var(--white);
     }
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .service-panel {
-      min-height: 390px;
-      padding: 68px max(36px, calc((100vw - var(--max-width)) / 2));
+      display: flex;
+      min-height: 410px;
+      justify-content: center;
+      padding: clamp(36px, 5vw, 58px);
+      overflow: hidden;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      flex-direction: column;
     }
 
     .service-panel:first-child {
-      padding-right: 60px;
       background:
         radial-gradient(
           circle at top left,
-          rgba(85, 214, 214, 0.17),
-          transparent 46%
+          rgba(85, 214, 214, 0.16),
+          transparent 48%
         ),
-        var(--navy);
+        linear-gradient(
+          145deg,
+          #07344c,
+          #062a40
+        );
     }
 
     .service-panel:last-child {
-      padding-right: max(36px, calc((100vw - var(--max-width)) / 2));
-      padding-left: 60px;
       background:
-        linear-gradient(
-          135deg,
-          rgba(240, 109, 33, 0.13),
-          transparent
+        radial-gradient(
+          circle at bottom right,
+          rgba(239, 109, 34, 0.13),
+          transparent 48%
         ),
-        var(--navy-dark);
+        linear-gradient(
+          145deg,
+          #102734,
+          #091d28
+        );
+    }
+
+    .service-panel .eyebrow {
+      margin-bottom: 14px;
+      color: #d7edf2;
     }
 
     .service-panel h2 {
+      max-width: 520px;
       margin: 0;
-      font-family: "Anton", sans-serif;
-      font-size: clamp(2.8rem, 5vw, 4.1rem);
+      font-family: "League Gothic", sans-serif;
+      font-size: clamp(3.6rem, 6vw, 5.4rem);
       font-weight: 400;
       letter-spacing: 0.01em;
-      line-height: 0.95;
+      line-height: 0.84;
       text-transform: uppercase;
     }
 
     .service-script {
       display: block;
-      margin: 7px 0 18px;
+      margin: 12px 0 20px;
       color: var(--teal);
       font-family: "Satisfy", cursive;
-      font-size: 1.6rem;
+      font-size: clamp(1.5rem, 2.6vw, 2rem);
       line-height: 1.2;
     }
 
-    .service-panel p {
+    .service-panel p:not(.eyebrow) {
       max-width: 500px;
+      margin: 0;
       color: #c8dce4;
+      line-height: 1.65;
+    }
+
+    .service-panel .button-row {
+      margin-top: 28px;
+    }
+
+    .service-panel .button {
+      align-self: flex-start;
     }
 
     /* HOURS */
@@ -825,7 +854,133 @@
     .entertainment {
       background: var(--cream);
     }
-/* RESPONSIVE */
+
+    /* ENTERTAINMENT FEATURE SECTION */
+
+    .entertainment {
+      background:
+        linear-gradient(
+          180deg,
+          #f7f0e3 0%,
+          #fbf8f2 100%
+        );
+    }
+
+    .entertainment-showcase {
+      display: grid;
+      gap: 30px;
+      margin-top: 42px;
+    }
+
+    .pelicans-rest-feature,
+    .outdoor-addicts-feature {
+      display: grid;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+      grid-template-columns: 1.08fr 0.92fr;
+    }
+
+    .pelicans-rest-photo {
+      position: relative;
+      min-height: 440px;
+      background:
+        linear-gradient(
+          0deg,
+          rgba(3, 27, 42, 0.48),
+          rgba(3, 27, 42, 0.04) 60%
+        ),
+        url("assets/Bar-Downstairs.jpg")
+        center center / cover
+        no-repeat;
+    }
+
+    .pelicans-rest-photo-label {
+      position: absolute;
+      right: 26px;
+      bottom: 26px;
+      left: 26px;
+      padding: 18px 21px;
+      border-left: 5px solid var(--orange);
+      border-radius: 5px;
+      background: rgba(3, 27, 42, 0.92);
+      color: var(--white);
+    }
+
+    .pelicans-rest-photo-label strong {
+      display: block;
+      font-family: "Oswald", sans-serif;
+      font-size: 1.28rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .pelicans-rest-photo-label span {
+      color: #d4e9ee;
+      font-size: 0.88rem;
+    }
+
+    .pelicans-rest-copy,
+    .outdoor-addicts-copy {
+      display: flex;
+      justify-content: center;
+      padding: 48px;
+      flex-direction: column;
+    }
+
+    .pelicans-rest-copy h3,
+    .outdoor-addicts-copy h3 {
+      margin: 0;
+      color: var(--navy);
+      font-family: "League Gothic", sans-serif;
+      font-size: clamp(3.4rem, 5vw, 4.8rem);
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      line-height: 0.9;
+      text-transform: uppercase;
+    }
+
+    .experience-script {
+      display: block;
+      margin: 8px 0 18px;
+      color: var(--teal-dark);
+      font-family: "Satisfy", cursive;
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      line-height: 1.2;
+    }
+
+    .pelicans-rest-copy p:not(.eyebrow),
+    .outdoor-addicts-copy p:not(.eyebrow) {
+      color: var(--muted);
+    }
+
+    .outdoor-addicts-feature {
+      grid-template-columns: 0.92fr 1.08fr;
+    }
+
+    .outdoor-addicts-logo-panel {
+      display: grid;
+      min-height: 380px;
+      place-items: center;
+      padding: 44px;
+      background:
+        linear-gradient(
+          135deg,
+          #0a344a,
+          #123f4d
+        );
+    }
+
+    .experience-logo {
+      width: min(100%, 390px);
+      filter: brightness(0) invert(1);
+      opacity: 0.96;
+    }
+
+    /* RESPONSIVE */
 
     @media (max-width: 1040px) {
       .nav-wrap {
@@ -961,11 +1116,9 @@
         grid-template-columns: 1fr;
       }
 
-      .service-panel,
-      .service-panel:first-child,
-      .service-panel:last-child {
+      .service-panel {
         min-height: auto;
-        padding: 60px max(24px, calc((100vw - 700px) / 2));
+        padding: 42px 34px;
       }
 
       .specials-heading {
@@ -1037,6 +1190,27 @@
 
       .special-card {
         min-height: auto;
+      }
+
+      .pelicans-rest-photo,
+      .outdoor-addicts-logo-panel {
+        min-height: 280px;
+      }
+
+      .pelicans-rest-photo-label {
+        right: 16px;
+        bottom: 16px;
+        left: 16px;
+        padding: 14px 16px;
+      }
+
+
+      .service-panel {
+        padding: 36px 26px;
+      }
+
+      .service-panel h2 {
+        font-size: clamp(3.2rem, 16vw, 4.2rem);
       }
 
       .hours-heading,
@@ -1378,8 +1552,9 @@
       </div>
     </section>
 
-<section class="services">
-      <div class="services-grid">
+    <section class="services">
+      <div class="container">
+        <div class="services-grid">
         <article id="catering" class="service-panel">
           <p class="eyebrow">Bring Da Dock to your gathering</p>
 
@@ -1435,9 +1610,11 @@
             </a>
           </div>
         </article>
+        </div>
       </div>
     </section>
-<section class="section hours">
+
+    <section class="section hours">
       <div class="container">
         <div class="hours-card">
           <div class="hours-heading">
@@ -1538,1846 +1715,6 @@
 
           <p class="footer-text">
             Pelican&rsquo;s Rest Outdoor Bar<br>
-            4 PM–Till
-          </p>
-        </div>
-
-        <div>
-          <h2 class="footer-heading">Quick Links</h2>
-
-          <a
-            class="footer-link"
-            href="https://orders.cake.net/11580650"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            View Menu
-          </a>
-
-          <a
-            class="footer-link"
-            href="https://www.facebook.com/people/Da-Dock-Bar-and-Grill/61575442389273/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Facebook
-          </a>
-
-          <a
-            class="footer-link"
-            href="https://theoutdooraddicts.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Outdoor Addicts
-          </a>
-        </div>
-      </div>
-
-      <div class="copyright">
-        © <span id="current-year"></span>
-        Da Dock Bar &amp; Grill LLC. All rights reserved.
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    const menuButton = document.querySelector(".menu-toggle");
-    const navigation = document.querySelector(".nav-links");
-    const navigationLinks = document.querySelectorAll(".nav-links a");
-
-    function closeMenu() {
-      navigation.classList.remove("open");
-      menuButton.setAttribute("aria-expanded", "false");
-      menuButton.textContent = "☰";
-      document.body.classList.remove("menu-open");
-    }
-
-    menuButton.addEventListener("click", () => {
-      const isOpen = navigation.classList.toggle("open");
-
-      menuButton.setAttribute(
-        "aria-expanded",
-        String(isOpen)
-      );
-
-      menuButton.textContent = isOpen ? "✕" : "☰";
-
-      document.body.classList.toggle(
-        "menu-open",
-        isOpen
-      );
-    });
-
-    navigationLinks.forEach((link) => {
-      link.addEventListener("click", closeMenu);
-    });
-
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 900) {
-        closeMenu();
-      }
-    });
-
-    document.getElementById("current-year").textContent =
-      new Date().getFullYear();
-  </script>
-</body>
-</html>      width: min(100%, 1320px);
-      margin-inline: auto;
-      box-shadow: 0 0 0 1px rgba(3, 27, 42, 0.08);
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button,
-    a {
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    section {
-      scroll-margin-top: 76px;
-    }
-
-    .container {
-      width: min(calc(100% - 48px), var(--max-width));
-      margin-inline: auto;
-    }
-
-    .section {
-      padding: 88px 0;
-    }
-
-    .eyebrow {
-      margin: 0 0 10px;
-      color: var(--orange);
-      font-family: "Oswald", sans-serif;
-      font-size: 0.92rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .section-title {
-      margin: 0;
-      color: var(--navy);
-      font-family: "Anton", sans-serif;
-      font-size: clamp(2.5rem, 5vw, 4.1rem);
-      font-weight: 400;
-      letter-spacing: 0.01em;
-      line-height: 0.95;
-      text-transform: uppercase;
-    }
-
-    .script-title {
-      display: block;
-      margin-top: 8px;
-      color: var(--teal-dark);
-      font-family: "Satisfy", cursive;
-      font-size: clamp(1.45rem, 3vw, 2.05rem);
-      font-weight: 400;
-      line-height: 1.2;
-      text-transform: none;
-    }
-
-    .section-intro {
-      max-width: 680px;
-      margin: 18px 0 0;
-      color: var(--muted);
-      font-size: 1rem;
-    }
-
-    .button-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 26px;
-    }
-
-    .button {
-      display: inline-flex;
-      min-height: 42px;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 10px 17px;
-      border: 2px solid transparent;
-      border-radius: 5px;
-      font-family: "Oswald", sans-serif;
-      font-size: 0.86rem;
-      font-weight: 700;
-      letter-spacing: 0.055em;
-      line-height: 1;
-      text-align: center;
-      text-transform: uppercase;
-      transition:
-        transform 180ms ease,
-        box-shadow 180ms ease;
-    }
-
-    .button:hover,
-    .button:focus-visible {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(3, 27, 42, 0.23);
-    }
-
-    .button-blue {
-      background: rgba(7, 133, 189, 0.88);
-      color: var(--white);
-    }
-
-    .button-orange {
-      background: rgba(239, 109, 34, 0.88);
-      color: var(--white);
-    }
-
-    .button-teal {
-      background: rgba(85, 214, 214, 0.88);
-      color: var(--navy-dark);
-    }
-
-    .button-navy {
-      background: var(--navy);
-      color: var(--white);
-    }
-
-    .button-outline {
-      border-color: rgba(255, 255, 255, 0.72);
-      background: rgba(3, 27, 42, 0.25);
-      color: var(--white);
-      backdrop-filter: blur(6px);
-    }
-
-    /* HEADER */
-
-    .site-header {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      z-index: 20;
-      width: min(100%, 1320px);
-      transform: translateX(-50%);
-      background: rgba(3, 27, 42, 0.96);
-      color: var(--white);
-      backdrop-filter: blur(8px);
-    }
-
-    .nav-wrap {
-      display: flex;
-      min-height: 92px;
-      align-items: center;
-      justify-content: flex-end;
-      padding-left: 330px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: clamp(16px, 1.8vw, 28px);
-      white-space: nowrap;
-    }
-
-    .nav-links a {
-      position: relative;
-      color: var(--white);
-      font-family: "Oswald", sans-serif;
-      font-size: clamp(0.76rem, 0.95vw, 0.9rem);
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-
-    .nav-links a::after {
-      position: absolute;
-      right: 0;
-      bottom: -8px;
-      left: 0;
-      height: 3px;
-      background: var(--teal);
-      content: "";
-      transform: scaleX(0);
-      transition: transform 180ms ease;
-    }
-
-    .nav-links a:hover::after,
-    .nav-links a:focus-visible::after {
-      transform: scaleX(1);
-    }
-
-    .menu-toggle {
-      display: none;
-      width: 46px;
-      height: 46px;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      border-radius: 6px;
-      background: transparent;
-      color: var(--white);
-      cursor: pointer;
-      font-size: 1.35rem;
-    }
-
-    /* HERO */
-
-    .hero {
-      position: relative;
-      min-height: 690px;
-      overflow: visible;
-      background:
-        linear-gradient(
-          90deg,
-          rgba(3, 20, 31, 0.90) 0%,
-          rgba(3, 27, 42, 0.66) 38%,
-          rgba(3, 27, 42, 0.15) 78%
-        ),
-        linear-gradient(
-          0deg,
-          rgba(3, 27, 42, 0.34),
-          transparent 58%
-        ),
-        url("assets/marina-photo.jpg")
-        center center / cover
-        no-repeat;
-      color: var(--white);
-    }
-
-    .hero::after {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      height: 8px;
-      background:
-        repeating-linear-gradient(
-          45deg,
-          #b78446 0,
-          #b78446 6px,
-          #dcaf72 6px,
-          #dcaf72 12px
-        );
-      content: "";
-    }
-
-    .hero-inner {
-      position: relative;
-      min-height: 690px;
-      padding-top: 92px;
-      padding-bottom: 54px;
-    }
-
-    .hero-logo {
-      position: absolute;
-      top: 24px;
-      left: 0;
-      z-index: 100;
-      width: 325px;
-      height: auto;
-      filter: drop-shadow(0 12px 16px rgba(0, 0, 0, 0.38));
-      transition:
-        opacity 160ms ease,
-        visibility 160ms ease;
-    }
-
-    .hero-copy {
-      width: min(100%, 520px);
-      padding-top: 310px;
-    }
-
-    .hero h1 {
-      margin: 0;
-      color: var(--white);
-      font-family: "League Gothic", sans-serif;
-      font-size: clamp(4.2rem, 7vw, 6rem);
-      font-weight: 400;
-      letter-spacing: 0;
-      line-height: 0.82;
-      text-transform: uppercase;
-      text-shadow: 0 5px 22px rgba(0, 0, 0, 0.34);
-    }
-
-    .hero h1 span {
-      display: block;
-    }
-
-    .hero-subtitle {
-      display: block;
-      width: max-content;
-      max-width: 100%;
-      margin: 14px 0 0;
-      color: var(--teal);
-      font-family: "Satisfy", cursive;
-      font-size: clamp(1.75rem, 3.2vw, 2.45rem);
-      font-weight: 400;
-      line-height: 1.1;
-      letter-spacing: 0.015em;
-      transform: rotate(-2deg);
-      transform-origin: left center;
-      text-shadow: 0 3px 14px rgba(0, 0, 0, 0.38);
-    }
-
-    .subtitle-in {
-      color: #38d1da;
-    }
-
-    .subtitle-venice {
-      color: #86ddd6;
-    }
-
-    .subtitle-la {
-      color: #f3dfb7;
-    }
-
-
-    .hero-anchor {
-      display: flex;
-      width: 145px;
-      align-items: center;
-      gap: 10px;
-      margin: 16px 0 13px;
-      color: #d6f8f8;
-    }
-
-    .hero-anchor::before,
-    .hero-anchor::after {
-      width: 44px;
-      height: 1px;
-      background: rgba(255, 255, 255, 0.65);
-      content: "";
-    }
-
-    .hero-description {
-      max-width: 480px;
-      margin: 0;
-      color: rgba(255, 255, 255, 0.94);
-      font-size: 0.95rem;
-      line-height: 1.58;
-    }
-
-    .hero-message {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 18px;
-      padding: 8px 13px;
-      border: 1px solid rgba(255, 255, 255, 0.27);
-      border-radius: 999px;
-      background: rgba(3, 27, 42, 0.47);
-      color: #dcf9f9;
-      font-size: 0.76rem;
-      font-weight: 700;
-      backdrop-filter: blur(5px);
-    }
-
-    .hero .button-row {
-      margin-top: 22px;
-    }
-
-    /* INTRODUCTION */
-
-    .intro {
-      background: var(--cream);
-    }
-
-    .intro-grid {
-      display: grid;
-      align-items: center;
-      gap: 58px;
-      grid-template-columns: 0.9fr 1.1fr;
-    }
-
-    .intro-copy p:not(.eyebrow) {
-      color: var(--muted);
-      font-size: 1rem;
-    }
-
-    .marina-card {
-      position: relative;
-      min-height: 420px;
-      overflow: hidden;
-      border-radius: var(--radius);
-      background:
-        linear-gradient(
-          0deg,
-          rgba(3, 27, 42, 0.48),
-          rgba(3, 27, 42, 0.02) 58%
-        ),
-        url("assets/marina-photo.jpg")
-        center / cover
-        no-repeat;
-      box-shadow: var(--shadow);
-    }
-
-
-    .pelicans-rest-card {
-      background:
-        linear-gradient(
-          0deg,
-          rgba(3, 27, 42, 0.5),
-          rgba(3, 27, 42, 0.04) 58%
-        ),
-        url("assets/Bar-Downstairs.jpg")
-        center / cover
-        no-repeat;
-    }
-
-    .marina-label {
-      position: absolute;
-      right: 24px;
-      bottom: 24px;
-      left: 24px;
-      padding: 16px 19px;
-      border-left: 5px solid var(--orange);
-      border-radius: 5px;
-      background: rgba(3, 27, 42, 0.88);
-      color: var(--white);
-    }
-
-    .marina-label strong {
-      display: block;
-      font-family: "Oswald", sans-serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .marina-label span {
-      color: #c7e8ed;
-      font-size: 0.86rem;
-    }
-
-    /* SPECIALS */
-
-    .specials {
-      background: var(--white);
-    }
-
-    .specials-heading {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 35px;
-      margin-bottom: 40px;
-    }
-
-    .specials-grid {
-      display: grid;
-      gap: 22px;
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .special-card {
-      position: relative;
-      min-height: 320px;
-      overflow: hidden;
-      padding: 32px 28px 30px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255, 255, 255, 0.98),
-          rgba(247, 240, 227, 0.72)
-        );
-      box-shadow: 0 14px 35px rgba(3, 27, 42, 0.08);
-    }
-
-    .special-card::before {
-      position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
-      height: 8px;
-      background: var(--orange);
-      content: "";
-    }
-
-    .special-card:nth-child(2)::before {
-      background: var(--red);
-    }
-
-    .special-card:nth-child(3)::before {
-      background: var(--blue);
-    }
-
-    .special-day {
-      display: inline-block;
-      margin-bottom: 22px;
-      padding: 7px 12px;
-      border-radius: 999px;
-      background: var(--navy);
-      color: var(--white);
-      font-family: "Oswald", sans-serif;
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-    }
-
-    .special-icon {
-      margin-bottom: 12px;
-      font-size: 2.1rem;
-    }
-
-    .special-card h3 {
-      margin: 0 0 12px;
-      color: var(--navy);
-      font-family: "Anton", sans-serif;
-      font-size: 1.9rem;
-      font-weight: 400;
-      letter-spacing: 0.015em;
-      line-height: 1;
-      text-transform: uppercase;
-    }
-
-    .special-card p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .special-note {
-      display: block;
-      margin-top: 18px;
-      color: var(--orange);
-      font-family: "Oswald", sans-serif;
-      font-size: 0.9rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-
-    /* SERVICES */
-
-    .services {
-      background: var(--navy);
-      color: var(--white);
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .service-panel {
-      min-height: 390px;
-      padding: 68px max(36px, calc((100vw - var(--max-width)) / 2));
-    }
-
-    .service-panel:first-child {
-      padding-right: 60px;
-      background:
-        radial-gradient(
-          circle at top left,
-          rgba(85, 214, 214, 0.17),
-          transparent 46%
-        ),
-        var(--navy);
-    }
-
-    .service-panel:last-child {
-      padding-right: max(36px, calc((100vw - var(--max-width)) / 2));
-      padding-left: 60px;
-      background:
-        linear-gradient(
-          135deg,
-          rgba(240, 109, 33, 0.13),
-          transparent
-        ),
-        var(--navy-dark);
-    }
-
-    .service-panel h2 {
-      margin: 0;
-      font-family: "Anton", sans-serif;
-      font-size: clamp(2.8rem, 5vw, 4.1rem);
-      font-weight: 400;
-      letter-spacing: 0.01em;
-      line-height: 0.95;
-      text-transform: uppercase;
-    }
-
-    .service-script {
-      display: block;
-      margin: 7px 0 18px;
-      color: var(--teal);
-      font-family: "Satisfy", cursive;
-      font-size: 1.6rem;
-      line-height: 1.2;
-    }
-
-    .service-panel p {
-      max-width: 500px;
-      color: #c8dce4;
-    }
-
-    /* HOURS */
-
-    .hours {
-      background: var(--cream);
-    }
-
-    .hours-card {
-      display: grid;
-      overflow: hidden;
-      border-radius: var(--radius);
-      background: var(--white);
-      box-shadow: var(--shadow);
-      grid-template-columns: 0.9fr 1.1fr;
-    }
-
-    .hours-heading {
-      display: grid;
-      align-content: center;
-      min-height: 380px;
-      padding: 52px;
-      background:
-        linear-gradient(
-          rgba(3, 27, 42, 0.72),
-          rgba(3, 27, 42, 0.8)
-        ),
-        url("assets/marina-photo.jpg")
-        center / cover
-        no-repeat;
-      color: var(--white);
-    }
-
-    .hours-heading h2 {
-      margin: 0;
-      font-family: "Anton", sans-serif;
-      font-size: clamp(3rem, 6vw, 4.7rem);
-      font-weight: 400;
-      letter-spacing: 0.02em;
-      line-height: 0.9;
-      text-transform: uppercase;
-    }
-
-    .hours-heading p {
-      margin: 16px 0 0;
-      color: #d2e9ee;
-    }
-
-    .hours-list {
-      display: grid;
-      align-content: center;
-      gap: 20px;
-      padding: 52px;
-    }
-
-    .hours-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-      padding-bottom: 19px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .hours-row:last-child {
-      padding-bottom: 0;
-      border-bottom: 0;
-    }
-
-    .hours-row strong {
-      color: var(--navy);
-      font-family: "Oswald", sans-serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-    }
-
-    .hours-row span {
-      color: var(--orange);
-      font-weight: 700;
-      text-align: right;
-    }
-
-    /* OUTDOOR ADDICTS */
-
-    .outdoor {
-      background: var(--white);
-    }
-
-    .outdoor-card {
-      display: grid;
-      align-items: center;
-      gap: 50px;
-      padding: 48px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background:
-        linear-gradient(
-          120deg,
-          #ffffff,
-          #f4efe5
-        );
-      box-shadow: 0 14px 38px rgba(3, 27, 42, 0.09);
-      grid-template-columns: 0.8fr 1.2fr;
-    }
-
-    .outdoor-logo {
-      width: min(100%, 400px);
-      margin-inline: auto;
-    }
-
-    .outdoor-copy h2 {
-      margin: 0;
-      color: var(--navy);
-      font-family: "Anton", sans-serif;
-      font-size: clamp(2.6rem, 5vw, 3.8rem);
-      font-weight: 400;
-      line-height: 0.95;
-      text-transform: uppercase;
-    }
-
-    .outdoor-copy p {
-      color: var(--muted);
-    }
-
-    /* FACEBOOK */
-
-    .facebook {
-      padding: 80px 0;
-      background:
-        linear-gradient(
-          rgba(3, 27, 42, 0.82),
-          rgba(3, 27, 42, 0.9)
-        ),
-        url("assets/marina-photo.jpg")
-        center / cover
-        no-repeat;
-      color: var(--white);
-      text-align: center;
-    }
-
-    .facebook-content {
-      max-width: 720px;
-      margin-inline: auto;
-    }
-
-    .facebook h2 {
-      margin: 0;
-      font-family: "Anton", sans-serif;
-      font-size: clamp(2.8rem, 6vw, 4.5rem);
-      font-weight: 400;
-      letter-spacing: 0.015em;
-      line-height: 0.92;
-      text-transform: uppercase;
-    }
-
-    .facebook-script {
-      display: block;
-      margin-top: 9px;
-      color: var(--teal);
-      font-family: "Satisfy", cursive;
-      font-size: clamp(1.35rem, 3vw, 1.95rem);
-      text-transform: none;
-    }
-
-    .facebook p {
-      color: #d2e7ec;
-    }
-
-    .facebook .button-row {
-      justify-content: center;
-    }
-
-    /* FOOTER */
-
-    .site-footer {
-      padding: 58px 0 24px;
-      background: var(--navy-dark);
-      color: var(--white);
-    }
-
-    .footer-grid {
-      display: grid;
-      gap: 42px;
-      grid-template-columns: 1.2fr 1fr 1fr;
-    }
-
-    .footer-logo {
-      width: 135px;
-      margin-bottom: 14px;
-      filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.2));
-    }
-
-    .footer-heading {
-      margin: 0 0 13px;
-      color: var(--teal);
-      font-family: "Oswald", sans-serif;
-      font-size: 1.05rem;
-      font-weight: 700;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-    }
-
-    .footer-text,
-    .footer-link {
-      color: #c2d7df;
-      font-size: 0.9rem;
-    }
-
-    .footer-link {
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .footer-link:hover,
-    .footer-link:focus-visible {
-      color: var(--white);
-      text-decoration: underline;
-    }
-
-    .copyright {
-      margin-top: 42px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255, 255, 255, 0.14);
-      color: #8da5af;
-      font-size: 0.78rem;
-      text-align: center;
-    }
-
-
-    @media (min-width: 1321px) {
-      body {
-        padding: 28px 0;
-      }
-
-      .site-header,
-      main,
-      .site-footer {
-        border-right: 1px solid rgba(3, 27, 42, 0.14);
-        border-left: 1px solid rgba(3, 27, 42, 0.14);
-      }
-    }
-
-
-    .nav-icon-link {
-      display: inline-flex;
-      width: 34px;
-      height: 34px;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid rgba(255, 255, 255, 0.32);
-      border-radius: 50%;
-      transition:
-        background 180ms ease,
-        transform 180ms ease,
-        border-color 180ms ease;
-    }
-
-    .nav-icon-link:hover,
-    .nav-icon-link:focus-visible {
-      border-color: var(--teal);
-      background: rgba(85, 214, 214, 0.12);
-      transform: translateY(-1px);
-    }
-
-    .nav-icon-link::after {
-      display: none;
-    }
-
-    .nav-icon-link svg {
-      width: 16px;
-      height: 16px;
-      fill: currentColor;
-    }
-
-    .button svg {
-      width: 15px;
-      height: 15px;
-      flex: 0 0 auto;
-      fill: currentColor;
-    }
-
-    .entertainment {
-      background: var(--cream);
-    }
-
-    .entertainment-grid {
-      display: grid;
-      gap: 24px;
-      margin-top: 38px;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .entertainment-card {
-      position: relative;
-      min-height: 330px;
-      overflow: hidden;
-      padding: 34px;
-      border-radius: var(--radius);
-      color: var(--white);
-      box-shadow: var(--shadow);
-    }
-
-    .entertainment-card::before {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      background:
-        linear-gradient(
-          135deg,
-          rgba(3, 27, 42, 0.94),
-          rgba(3, 27, 42, 0.72)
-        );
-      content: "";
-    }
-
-    .entertainment-card:nth-child(2)::before {
-      background:
-        linear-gradient(
-          135deg,
-          rgba(3, 27, 42, 0.92),
-          rgba(8, 83, 105, 0.74)
-        );
-    }
-
-    .entertainment-card > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .entertainment-card h3 {
-      margin: 0;
-      font-family: "League Gothic", sans-serif;
-      font-size: clamp(2.6rem, 5vw, 4rem);
-      font-weight: 400;
-      letter-spacing: 0.01em;
-      line-height: 0.9;
-      text-transform: uppercase;
-    }
-
-    .entertainment-card p {
-      max-width: 520px;
-      color: #d8e7ec;
-    }
-
-    .entertainment-logo {
-      width: min(100%, 330px);
-      margin-bottom: 26px;
-      filter: brightness(0) invert(1);
-      opacity: 0.95;
-    }
-
-    .entertainment-list {
-      display: grid;
-      gap: 10px;
-      margin: 20px 0 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .entertainment-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      color: #e1edf0;
-    }
-
-    .entertainment-list li::before {
-      color: var(--teal);
-      content: "⚓";
-      font-size: 0.9rem;
-      line-height: 1.6;
-    }
-
-    /* RESPONSIVE */
-
-    @media (max-width: 1040px) {
-      .nav-wrap {
-        min-height: 86px;
-        padding-left: 240px;
-      }
-
-      .nav-links {
-        gap: 14px;
-      }
-
-      .hero-logo {
-        top: 20px;
-        width: 240px;
-      }
-
-      .hero-copy {
-        padding-top: 248px;
-      }
-    }
-
-    @media (max-width: 900px) {
-      .nav-wrap {
-        min-height: 78px;
-        justify-content: flex-end;
-        padding-left: 0;
-      }
-
-      .menu-toggle {
-        display: inline-flex;
-        position: relative;
-        z-index: 1300;
-      }
-
-      .nav-links {
-        position: fixed;
-        top: 0;
-        right: 0;
-        z-index: 1200;
-        display: none;
-        width: min(340px, 88vw);
-        height: 100vh;
-        align-items: stretch;
-        justify-content: flex-start;
-        gap: 0;
-        padding: 90px 32px 40px;
-        overflow-y: auto;
-        background: var(--navy-dark);
-        box-shadow: -18px 0 40px rgba(0, 0, 0, 0.3);
-        white-space: normal;
-        flex-direction: column;
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      body.menu-open .hero-logo {
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-      }
-
-      body.menu-open .hero-copy {
-        visibility: hidden;
-      }
-
-      .nav-links a {
-        padding: 15px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        font-size: 1.15rem;
-      }
-
-      .hero,
-      .hero-inner {
-        min-height: 700px;
-      }
-
-      .hero {
-        background-position: 60% center;
-      }
-
-      .hero-inner {
-        padding-top: 78px;
-      }
-
-      .hero-logo {
-        top: 18px;
-        width: 210px;
-      }
-
-      .hero-copy {
-        width: min(100%, 500px);
-        padding-top: 238px;
-      }
-
-      .intro-grid,
-      .hours-card,
-      .outdoor-card {
-        grid-template-columns: 1fr;
-      }
-
-      .specials-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .entertainment-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .nav-icon-link {
-        width: auto;
-        height: auto;
-        justify-content: flex-start;
-        border: 0;
-        border-radius: 0;
-      }
-
-      .nav-icon-link::before {
-        margin-right: 10px;
-        content: "Facebook";
-      }
-
-
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .service-panel,
-      .service-panel:first-child,
-      .service-panel:last-child {
-        min-height: auto;
-        padding: 60px max(24px, calc((100vw - 700px) / 2));
-      }
-
-      .specials-heading {
-        display: block;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .container {
-        width: min(calc(100% - 28px), var(--max-width));
-      }
-
-      .section {
-        padding: 68px 0;
-      }
-
-      .hero,
-      .hero-inner {
-        min-height: 690px;
-      }
-
-      .hero {
-        background-position: 65% center;
-      }
-
-      .hero-logo {
-        top: 18px;
-        width: 188px;
-      }
-
-      .hero-copy {
-        padding-top: 220px;
-      }
-
-      .hero h1 {
-        font-size: clamp(3.2rem, 15vw, 4.4rem);
-        line-height: 0.84;
-      }
-
-      .hero-subtitle {
-        font-size: 1.5rem;
-      }
-
-      .hero-description {
-        max-width: 400px;
-        font-size: 0.9rem;
-      }
-
-      .hero-message {
-        border-radius: 7px;
-      }
-
-      .button-row {
-        display: grid;
-        grid-template-columns: 1fr;
-      }
-
-      .button {
-        width: 100%;
-      }
-
-      .marina-card {
-        min-height: 330px;
-      }
-
-      .special-card {
-        min-height: auto;
-      }
-
-      .hours-heading,
-      .hours-list,
-      .outdoor-card {
-        padding: 34px 24px;
-      }
-
-      .hours-heading {
-        min-height: 300px;
-      }
-
-      .hours-row {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 5px;
-      }
-
-      .hours-row span {
-        text-align: left;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        transition-duration: 0.01ms !important;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <button
-        class="menu-toggle"
-        type="button"
-        aria-label="Open navigation menu"
-        aria-expanded="false"
-        aria-controls="site-navigation"
-      >
-        ☰
-      </button>
-
-      <nav
-        id="site-navigation"
-        class="nav-links"
-        aria-label="Main navigation"
-      >
-        <a href="#home">Home</a>
-
-        <a
-          href="https://orders.cake.net/11580650"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Menu
-        </a>
-
-        <a href="#catering">Catering</a>
-        <a href="#events">Events</a>
-        <a href="#entertainment">Entertainment</a>
-
-        <a
-          class="nav-icon-link"
-          href="https://www.facebook.com/people/Da-Dock-Bar-and-Grill/61575442389273/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Da Dock Bar and Grill on Facebook"
-          title="Facebook"
-        >
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M22 12.07C22 6.51 17.52 2 12 2S2 6.51 2 12.07C2 17.1 5.66 21.27 10.44 22v-7.02H7.9v-2.91h2.54V9.86c0-2.52 1.49-3.91 3.78-3.91 1.09 0 2.24.2 2.24.2v2.48H15.2c-1.24 0-1.63.78-1.63 1.57v1.87h2.78l-.44 2.91h-2.34V22C18.34 21.27 22 17.1 22 12.07Z"/>
-          </svg>
-        </a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section id="home" class="hero">
-      <div class="container hero-inner">
-        <img
-          class="hero-logo"
-          src="assets/da-dock-logo.svg"
-          alt="Da Dock Bar and Grill logo"
-        >
-
-        <div class="hero-copy">
-          <h1>
-            <span>Waterfront</span>
-            <span>Dining</span>
-          </h1>
-
-          <p class="hero-subtitle">
-            <span class="subtitle-in">in</span>
-            <span class="subtitle-venice">Venice,</span>
-            <span class="subtitle-la">Louisiana</span>
-          </p>
-
-          <div class="hero-anchor" aria-hidden="true">
-            ⚓
-          </div>
-
-          <p class="hero-description">
-            Fresh seafood, cold drinks, weekly specials,
-            catering, live entertainment, and unforgettable
-            waterfront views at Cypress Cove Marina—where memories
-            are made at the &ldquo;end of the world.&rdquo;
-          </p>
-<div class="button-row">
-            <a
-              class="button button-blue"
-              href="https://orders.cake.net/11580650"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M7 2h2v8a3 3 0 0 1-2 2.83V22H5v-9.17A3 3 0 0 1 3 10V2h2v7h2V2Zm9 0c2.76 0 5 2.24 5 5v5h-3v10h-2V2Z"/>
-              </svg>
-              View Menu
-            </a>
-
-            <a
-              class="button button-orange"
-              href="#catering"
-            >
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 4a8 8 0 0 0-8 8h16a8 8 0 0 0-8-8Zm0-2a2 2 0 0 1 2 2h-4a2 2 0 0 1 2-2ZM3 14h18v2H3v-2Zm2 4h14v2H5v-2Z"/>
-              </svg>
-              Book Catering
-            </a>
-
-            <a
-              class="button button-teal"
-              href="#events"
-            >
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M7 2h2v2h6V2h2v2h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h3V2Zm13 8H4v10h16V10ZM4 8h16V6H4v2Z"/>
-              </svg>
-              Plan an Event
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section intro">
-      <div class="container intro-grid">
-        <div class="intro-copy">
-          <p class="eyebrow">
-            Cold drinks. Good company. Waterfront views.
-          </p>
-
-          <h2 class="section-title">
-            Featured at Da Dock
-
-            <span class="script-title">
-              Wind down at Pelican&rsquo;s Rest
-            </span>
-          </h2>
-
-          <p>
-            Da Dock is more than a place to eat&mdash;it is where
-            locals, anglers, and visitors come together to relax,
-            share stories, and enjoy the marina atmosphere.
-          </p>
-
-          <p>
-            After a long day of fishing, head downstairs to
-            <strong>Pelican&rsquo;s Rest</strong>&mdash;our outdoor bar
-            and gathering space designed for cold drinks, easy
-            conversation, and time to unwind by the marina.
-          </p>
-
-          <div class="button-row">
-            <a
-              class="button button-blue"
-              href="https://orders.cake.net/11580650"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View the Menu
-            </a>
-
-          </div>
-        </div>
-
-        <div
-          class="marina-card pelicans-rest-card"
-          role="img"
-          aria-label="Pelican's Rest outdoor downstairs bar at Da Dock"
-        >
-          <div class="marina-label">
-            <strong>Pelican&rsquo;s Rest</strong>
-            <span>Outdoor bar area &middot; Located downstairs</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="specials" class="section specials">
-      <div class="container">
-        <div class="specials-heading">
-          <div>
-            <p class="eyebrow">Featured at Da Dock</p>
-
-            <h2 class="section-title">
-              Weekly Favorites
-
-              <span class="script-title">
-                Something to look forward to
-              </span>
-            </h2>
-          </div>
-
-          <p class="section-intro">
-            Great food, local ingredients, and weekly
-            traditions served with a waterfront view.
-          </p>
-        </div>
-
-        <div class="specials-grid">
-          <article class="special-card">
-            <span class="special-day">Every Tuesday</span>
-
-            <div class="special-icon" aria-hidden="true">
-              🌮
-            </div>
-
-            <h3>Taco Tuesday</h3>
-
-            <p>
-              Join us every Tuesday for tacos, cold drinks,
-              and the laid-back waterfront atmosphere of
-              Da Dock.
-            </p>
-
-            <span class="special-note">
-              Follow Facebook for current specials
-            </span>
-          </article>
-
-          <article class="special-card">
-            <span class="special-day">Every Thursday</span>
-
-            <div class="special-icon" aria-hidden="true">
-              🥩
-            </div>
-
-            <h3>Steak Night</h3>
-
-            <p>
-              Thursday Steak Night features fresh local beef
-              from Voiron’s, a trusted local Louisiana meat
-              market.
-            </p>
-
-            <span class="special-note">
-              Fresh local beef from Voiron’s
-            </span>
-          </article>
-
-          <article class="special-card">
-            <span class="special-day">Your Fresh Catch</span>
-
-            <div class="special-icon" aria-hidden="true">
-              🎣
-            </div>
-
-            <h3>Catch &amp; Cook</h3>
-
-            <p>
-              Bring in your fresh catch and let the Da Dock
-              kitchen turn your day on the water into a meal
-              worth remembering.
-            </p>
-
-            <span class="special-note">
-              Ask about preparation options
-            </span>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="services">
-      <div class="services-grid">
-        <article id="catering" class="service-panel">
-          <p class="eyebrow">Bring Da Dock to your gathering</p>
-
-          <h2>Catering</h2>
-
-          <span class="service-script">
-            Let us bring the flavor
-          </span>
-
-          <p>
-            Planning a company meal, family gathering,
-            fishing trip, celebration, or group event?
-            Ask about Da Dock catering options for gatherings
-            of all sizes.
-          </p>
-
-          <div class="button-row">
-            <a
-              class="button button-orange"
-              href="https://www.facebook.com/people/Da-Dock-Bar-and-Grill/61575442389273/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Contact Us
-            </a>
-          </div>
-        </article>
-
-        <article id="events" class="service-panel">
-          <p class="eyebrow">Celebrate on the waterfront</p>
-
-          <h2>Special Events</h2>
-
-          <span class="service-script">
-            Celebrate at Da Dock
-          </span>
-
-          <p>
-            Da Dock provides a memorable waterfront setting
-            for birthdays, reunions, company gatherings,
-            private parties, live entertainment, and other
-            special occasions.
-          </p>
-
-          <div class="button-row">
-            <a
-              class="button button-teal"
-              href="https://www.facebook.com/people/Da-Dock-Bar-and-Grill/61575442389273/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Plan Your Event
-            </a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-
-    <section id="entertainment" class="section entertainment">
-      <div class="container">
-        <p class="eyebrow">More to experience</p>
-
-        <h2 class="section-title">
-          Entertainment
-
-          <span class="script-title">
-            On the water and after dark
-          </span>
-        </h2>
-
-        <p class="section-intro">
-          From downstairs nightlife at Da Dock to guided outdoor
-          adventures through Outdoor Addicts, Venice offers plenty
-          to do before and after your meal.
-        </p>
-
-        <div class="entertainment-grid">
-          <article class="entertainment-card">
-            <h3>Downstairs Entertainment</h3>
-
-            <p>
-              Head downstairs starting at 4 PM for drinks,
-              music, special events, and a laid-back marina
-              atmosphere that carries into the night.
-            </p>
-
-            <ul class="entertainment-list">
-              <li>Live entertainment and themed nights</li>
-              <li>Private parties and group celebrations</li>
-              <li>Current announcements posted on Facebook</li>
-            </ul>
-
-            <div class="button-row">
-              <a
-                class="button button-orange"
-                href="https://www.facebook.com/people/Da-Dock-Bar-and-Grill/61575442389273/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                See Current Events
-              </a>
-            </div>
-          </article>
-
-          <article class="entertainment-card">
-            <img
-              class="entertainment-logo"
-              src="assets/outdoor-addicts-logo.webp"
-              alt="Outdoor Addicts"
-            >
-
-            <h3>Outdoor Addicts</h3>
-
-            <p>
-              Make Da Dock part of a complete Venice experience
-              with guided fishing, hunting, lodging, equipment,
-              and customized outdoor adventure packages.
-            </p>
-
-            <div class="button-row">
-              <a
-                class="button button-teal"
-                href="https://theoutdooraddicts.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Explore Outdoor Addicts
-              </a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section hours">
-      <div class="container">
-        <div class="hours-card">
-          <div class="hours-heading">
-            <p class="eyebrow">Come see us</p>
-
-            <h2>Hours</h2>
-
-            <p>
-              Waterfront dining upstairs and entertainment
-              downstairs.
-            </p>
-          </div>
-
-          <div class="hours-list">
-            <div class="hours-row">
-              <strong>Upstairs Dining</strong>
-              <span>Monday–Friday · 11 AM–10 PM</span>
-            </div>
-
-            <div class="hours-row">
-              <strong>Downstairs Entertainment</strong>
-              <span>4 PM–Till</span>
-            </div>
-
-            <div class="hours-row">
-              <strong>Current Updates</strong>
-              <span>Check Facebook for announcements</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="outdoor-addicts" class="section outdoor">
-      <div class="container">
-        <div class="outdoor-card">
-          <div>
-            <img
-              class="outdoor-logo"
-              src="assets/outdoor-addicts-logo.webp"
-              alt="Outdoor Addicts logo"
-            >
-          </div>
-
-          <div class="outdoor-copy">
-            <p class="eyebrow">Featured sister company</p>
-
-            <h2>
-              Adventure Starts in Venice
-            </h2>
-
-            <span class="script-title">
-              Fish. Hunt. Explore.
-            </span>
-
-            <p>
-              Outdoor Addicts offers inshore and offshore
-              fishing, hunting, guided experiences, lodging,
-              equipment, and customized adventure packages
-              in Venice, Louisiana.
-            </p>
-
-            <div class="button-row">
-              <a
-                class="button button-navy"
-                href="https://theoutdooraddicts.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Visit Outdoor Addicts
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="facebook">
-      <div class="container facebook-content">
-        <p class="eyebrow">Stay connected</p>
-
-        <h2>
-          Follow Da Dock
-
-          <span class="facebook-script">
-            See what is happening at the marina
-          </span>
-        </h2>
-
-        <p>
-          Follow the official Facebook page for current
-          specials, entertainment announcements, upcoming
-          events, photos, and updates from Da Dock.
-        </p>
-
-        <div class="button-row">
-          <a
-            class="button button-orange"
-            href="https://www.facebook.com/people/Da-Dock-Bar-and-Grill/61575442389273/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Visit Facebook
-          </a>
-
-          <a
-            class="button button-outline"
-            href="https://orders.cake.net/11580650"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            View Menu
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <img
-            class="footer-logo"
-            src="assets/da-dock-logo.svg"
-            alt="Da Dock Bar and Grill"
-          >
-
-          <p class="footer-text">
-            Waterfront dining, cold drinks, catering,
-            entertainment, and special events at Cypress
-            Cove Marina in Venice, Louisiana.
-          </p>
-        </div>
-
-        <div>
-          <h2 class="footer-heading">Hours</h2>
-
-          <p class="footer-text">
-            Upstairs Dining<br>
-            Monday–Friday<br>
-            11 AM–10 PM
-          </p>
-
-          <p class="footer-text">
-            Downstairs Entertainment<br>
             4 PM–Till
           </p>
         </div>
