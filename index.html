@@ -2,11 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <meta
     name="description"
@@ -14,15 +10,13 @@
   >
 
   <meta name="theme-color" content="#062a40">
-
   <title>Da Dock Bar & Grill | Venice, Louisiana</title>
 
-  <!-- Brand-style fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&family=Yellowtail&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=League+Gothic&family=Oswald:wght@500;600;700&family=Satisfy&display=swap"
     rel="stylesheet"
   >
 
@@ -30,21 +24,19 @@
     :root {
       --navy: #062a40;
       --navy-dark: #031b2a;
-      --navy-light: #0a3a54;
       --blue: #0785bd;
       --teal: #55d6d6;
       --teal-dark: #189b9f;
-      --orange: #f06d21;
+      --orange: #ef6d22;
       --red: #c94125;
       --cream: #f7f0e3;
-      --sand: #e6d5bb;
       --white: #ffffff;
       --text: #163346;
       --muted: #62727c;
-      --border: rgba(6, 42, 64, 0.15);
-      --shadow: 0 20px 55px rgba(3, 27, 42, 0.17);
-      --radius: 18px;
-      --max-width: 1180px;
+      --border: rgba(6, 42, 64, 0.14);
+      --shadow: 0 18px 48px rgba(3, 27, 42, 0.15);
+      --radius: 16px;
+      --max-width: 1360px;
     }
 
     * {
@@ -58,7 +50,7 @@
     body {
       margin: 0;
       overflow-x: hidden;
-      background: var(--cream);
+      background: #ded7cb;
       color: var(--text);
       font-family: "Inter", Arial, sans-serif;
       line-height: 1.6;
@@ -66,6 +58,13 @@
 
     body.menu-open {
       overflow: hidden;
+    }
+
+    main,
+    .site-footer {
+      width: min(100%, 1440px);
+      margin-inline: auto;
+      box-shadow: 0 0 0 1px rgba(3, 27, 42, 0.08);
     }
 
     img {
@@ -88,31 +87,31 @@
     }
 
     .container {
-      width: min(calc(100% - 40px), var(--max-width));
+      width: min(calc(100% - 48px), var(--max-width));
       margin-inline: auto;
     }
 
     .section {
-      padding: 95px 0;
+      padding: 88px 0;
     }
 
     .eyebrow {
       margin: 0 0 10px;
       color: var(--orange);
       font-family: "Oswald", sans-serif;
-      font-size: 1rem;
-      font-weight: 800;
-      letter-spacing: 0.13em;
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
     }
 
     .section-title {
       margin: 0;
       color: var(--navy);
-      font-family: "Oswald", sans-serif;
-      font-size: clamp(2.7rem, 5.4vw, 4.2rem);
-      font-weight: 900;
-      letter-spacing: 0.02em;
+      font-family: "Anton", sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4.1rem);
+      font-weight: 400;
+      letter-spacing: 0.01em;
       line-height: 0.95;
       text-transform: uppercase;
     }
@@ -121,53 +120,52 @@
       display: block;
       margin-top: 8px;
       color: var(--teal-dark);
-      font-family: "Yellowtail", cursive;
-      font-size: clamp(1.45rem, 3vw, 2.1rem);
+      font-family: "Satisfy", cursive;
+      font-size: clamp(1.45rem, 3vw, 2.05rem);
       font-weight: 400;
-      line-height: 1.25;
+      line-height: 1.2;
       text-transform: none;
     }
 
     .section-intro {
       max-width: 680px;
-      margin: 20px 0 0;
+      margin: 18px 0 0;
       color: var(--muted);
-      font-size: 1.04rem;
+      font-size: 1rem;
     }
 
     .button-row {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 28px;
+      margin-top: 26px;
     }
 
     .button {
       display: inline-flex;
-      min-height: 50px;
+      min-height: 48px;
       align-items: center;
       justify-content: center;
-      gap: 9px;
-      padding: 13px 23px;
+      gap: 8px;
+      padding: 12px 21px;
       border: 2px solid transparent;
-      border-radius: 6px;
+      border-radius: 5px;
       font-family: "Oswald", sans-serif;
-      font-size: 1.05rem;
-      font-weight: 800;
-      letter-spacing: 0.07em;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.055em;
       line-height: 1;
       text-align: center;
       text-transform: uppercase;
       transition:
         transform 180ms ease,
-        box-shadow 180ms ease,
-        background 180ms ease;
+        box-shadow 180ms ease;
     }
 
     .button:hover,
     .button:focus-visible {
       transform: translateY(-2px);
-      box-shadow: 0 12px 26px rgba(3, 27, 42, 0.23);
+      box-shadow: 0 10px 24px rgba(3, 27, 42, 0.23);
     }
 
     .button-blue {
@@ -191,38 +189,39 @@
     }
 
     .button-outline {
-      border-color: rgba(255, 255, 255, 0.75);
+      border-color: rgba(255, 255, 255, 0.72);
       background: rgba(3, 27, 42, 0.25);
       color: var(--white);
       backdrop-filter: blur(6px);
     }
 
-    /* =====================================================
-       HEADER
-    ===================================================== */
+    /* HEADER */
 
     .site-header {
       position: absolute;
-      inset: 0 0 auto 0;
-      z-index: 1000;
-      background: rgba(3, 27, 42, 0.94);
+      top: 0;
+      left: 50%;
+      z-index: 20;
+      width: min(100%, 1440px);
+      transform: translateX(-50%);
+      background: rgba(3, 27, 42, 0.96);
       color: var(--white);
       backdrop-filter: blur(8px);
     }
 
     .nav-wrap {
       display: flex;
-      min-height: 82px;
+      min-height: 92px;
       align-items: center;
       justify-content: flex-end;
-      padding-left: 235px;
+      padding-left: 250px;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      gap: clamp(16px, 2vw, 29px);
+      gap: clamp(16px, 1.8vw, 28px);
       white-space: nowrap;
     }
 
@@ -230,9 +229,9 @@
       position: relative;
       color: var(--white);
       font-family: "Oswald", sans-serif;
-      font-size: clamp(0.78rem, 1vw, 0.92rem);
-      font-weight: 800;
-      letter-spacing: 0.055em;
+      font-size: clamp(0.76rem, 0.95vw, 0.9rem);
+      font-weight: 700;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
     }
 
@@ -267,24 +266,22 @@
       font-size: 1.35rem;
     }
 
-    /* =====================================================
-       HERO
-    ===================================================== */
+    /* HERO */
 
     .hero {
       position: relative;
-      min-height: 760px;
+      min-height: 690px;
       overflow: hidden;
       background:
         linear-gradient(
           90deg,
           rgba(3, 20, 31, 0.90) 0%,
-          rgba(3, 27, 42, 0.68) 40%,
-          rgba(3, 27, 42, 0.18) 80%
+          rgba(3, 27, 42, 0.66) 38%,
+          rgba(3, 27, 42, 0.15) 78%
         ),
         linear-gradient(
           0deg,
-          rgba(3, 27, 42, 0.40),
+          rgba(3, 27, 42, 0.34),
           transparent 58%
         ),
         url("assets/marina-photo.jpg")
@@ -298,7 +295,7 @@
       right: 0;
       bottom: 0;
       left: 0;
-      height: 9px;
+      height: 8px;
       background:
         repeating-linear-gradient(
           45deg,
@@ -313,35 +310,36 @@
     .hero-inner {
       position: relative;
       z-index: 2;
-      min-height: 760px;
-      padding-top: 82px;
+      min-height: 690px;
+      padding-top: 92px;
+      padding-bottom: 54px;
     }
 
     .hero-logo {
       position: absolute;
       top: 8px;
       left: 0;
-      z-index: 5;
-      width: 255px;
+      z-index: 30;
+      width: 218px;
       height: auto;
-      filter: drop-shadow(0 15px 18px rgba(0, 0, 0, 0.38));
+      filter: drop-shadow(0 12px 16px rgba(0, 0, 0, 0.38));
     }
 
     .hero-copy {
-      width: min(100%, 560px);
-      padding-top: 275px;
+      width: min(100%, 520px);
+      padding-top: 220px;
     }
 
     .hero h1 {
       margin: 0;
       color: var(--white);
-      font-family: "Anton", sans-serif;
-      font-size: clamp(4.5rem, 7.3vw, 6.35rem);
-      font-weight: 900;
-      letter-spacing: 0.005em;
+      font-family: "League Gothic", sans-serif;
+      font-size: clamp(4.2rem, 7vw, 6rem);
+      font-weight: 400;
+      letter-spacing: 0;
       line-height: 0.82;
       text-transform: uppercase;
-      text-shadow: 0 5px 24px rgba(0, 0, 0, 0.33);
+      text-shadow: 0 5px 22px rgba(0, 0, 0, 0.34);
     }
 
     .hero h1 span {
@@ -349,61 +347,79 @@
     }
 
     .hero-subtitle {
-      margin: 18px 0 0;
+      display: block;
+      width: max-content;
+      max-width: 100%;
+      margin: 14px 0 0;
       color: var(--teal);
-      font-family: "Yellowtail", cursive;
-      font-size: clamp(1.8rem, 3.4vw, 2.7rem);
-      line-height: 1.2;
-      text-shadow: 0 3px 16px rgba(0, 0, 0, 0.35);
+      font-family: "Satisfy", cursive;
+      font-size: clamp(1.75rem, 3.2vw, 2.45rem);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: 0.015em;
+      transform: rotate(-2deg);
+      transform-origin: left center;
+      text-shadow: 0 3px 14px rgba(0, 0, 0, 0.38);
     }
+
+    .subtitle-in {
+      color: #38d1da;
+    }
+
+    .subtitle-venice {
+      color: #86ddd6;
+    }
+
+    .subtitle-la {
+      color: #f3dfb7;
+    }
+
 
     .hero-anchor {
       display: flex;
-      width: 165px;
+      width: 145px;
       align-items: center;
-      gap: 11px;
-      margin: 18px 0 14px;
+      gap: 10px;
+      margin: 16px 0 13px;
       color: #d6f8f8;
     }
 
     .hero-anchor::before,
     .hero-anchor::after {
-      width: 48px;
+      width: 44px;
       height: 1px;
       background: rgba(255, 255, 255, 0.65);
       content: "";
     }
 
     .hero-description {
-      max-width: 540px;
+      max-width: 480px;
       margin: 0;
       color: rgba(255, 255, 255, 0.94);
-      font-size: 1rem;
-      line-height: 1.65;
+      font-size: 0.95rem;
+      line-height: 1.58;
     }
 
     .hero-message {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      margin-top: 20px;
-      padding: 9px 14px;
+      margin-top: 18px;
+      padding: 8px 13px;
       border: 1px solid rgba(255, 255, 255, 0.27);
       border-radius: 999px;
       background: rgba(3, 27, 42, 0.47);
       color: #dcf9f9;
-      font-size: 0.80rem;
+      font-size: 0.76rem;
       font-weight: 700;
       backdrop-filter: blur(5px);
     }
 
     .hero .button-row {
-      margin-top: 25px;
+      margin-top: 22px;
     }
 
-    /* =====================================================
-       INTRODUCTION
-    ===================================================== */
+    /* INTRODUCTION */
 
     .intro {
       background: var(--cream);
@@ -412,18 +428,18 @@
     .intro-grid {
       display: grid;
       align-items: center;
-      gap: 65px;
+      gap: 58px;
       grid-template-columns: 0.9fr 1.1fr;
     }
 
     .intro-copy p:not(.eyebrow) {
       color: var(--muted);
-      font-size: 1.04rem;
+      font-size: 1rem;
     }
 
     .marina-card {
       position: relative;
-      min-height: 440px;
+      min-height: 420px;
       overflow: hidden;
       border-radius: var(--radius);
       background:
@@ -440,10 +456,10 @@
 
     .marina-label {
       position: absolute;
-      right: 26px;
-      bottom: 26px;
-      left: 26px;
-      padding: 17px 20px;
+      right: 24px;
+      bottom: 24px;
+      left: 24px;
+      padding: 16px 19px;
       border-left: 5px solid var(--orange);
       border-radius: 5px;
       background: rgba(3, 27, 42, 0.88);
@@ -453,20 +469,18 @@
     .marina-label strong {
       display: block;
       font-family: "Oswald", sans-serif;
-      font-size: 1.3rem;
-      font-weight: 800;
-      letter-spacing: 0.05em;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
     }
 
     .marina-label span {
       color: #c7e8ed;
-      font-size: 0.88rem;
+      font-size: 0.86rem;
     }
 
-    /* =====================================================
-       SPECIALS
-    ===================================================== */
+    /* SPECIALS */
 
     .specials {
       background: var(--white);
@@ -477,7 +491,7 @@
       align-items: end;
       justify-content: space-between;
       gap: 35px;
-      margin-bottom: 42px;
+      margin-bottom: 40px;
     }
 
     .specials-grid {
@@ -488,9 +502,9 @@
 
     .special-card {
       position: relative;
-      min-height: 330px;
+      min-height: 320px;
       overflow: hidden;
-      padding: 34px 30px 32px;
+      padding: 32px 28px 30px;
       border: 1px solid var(--border);
       border-radius: var(--radius);
       background:
@@ -522,30 +536,30 @@
 
     .special-day {
       display: inline-block;
-      margin-bottom: 24px;
+      margin-bottom: 22px;
       padding: 7px 12px;
       border-radius: 999px;
       background: var(--navy);
       color: var(--white);
       font-family: "Oswald", sans-serif;
-      font-size: 0.9rem;
-      font-weight: 800;
-      letter-spacing: 0.09em;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
       text-transform: uppercase;
     }
 
     .special-icon {
-      margin-bottom: 13px;
-      font-size: 2.2rem;
+      margin-bottom: 12px;
+      font-size: 2.1rem;
     }
 
     .special-card h3 {
       margin: 0 0 12px;
       color: var(--navy);
-      font-family: "Oswald", sans-serif;
-      font-size: 2rem;
-      font-weight: 900;
-      letter-spacing: 0.025em;
+      font-family: "Anton", sans-serif;
+      font-size: 1.9rem;
+      font-weight: 400;
+      letter-spacing: 0.015em;
       line-height: 1;
       text-transform: uppercase;
     }
@@ -557,18 +571,16 @@
 
     .special-note {
       display: block;
-      margin-top: 20px;
+      margin-top: 18px;
       color: var(--orange);
       font-family: "Oswald", sans-serif;
-      font-size: 0.94rem;
-      font-weight: 800;
-      letter-spacing: 0.06em;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
     }
 
-    /* =====================================================
-       CATERING + EVENTS
-    ===================================================== */
+    /* SERVICES */
 
     .services {
       background: var(--navy);
@@ -581,12 +593,12 @@
     }
 
     .service-panel {
-      min-height: 420px;
-      padding: 75px max(38px, calc((100vw - var(--max-width)) / 2));
+      min-height: 390px;
+      padding: 68px max(36px, calc((100vw - var(--max-width)) / 2));
     }
 
     .service-panel:first-child {
-      padding-right: 65px;
+      padding-right: 60px;
       background:
         radial-gradient(
           circle at top left,
@@ -597,8 +609,8 @@
     }
 
     .service-panel:last-child {
-      padding-right: max(38px, calc((100vw - var(--max-width)) / 2));
-      padding-left: 65px;
+      padding-right: max(36px, calc((100vw - var(--max-width)) / 2));
+      padding-left: 60px;
       background:
         linear-gradient(
           135deg,
@@ -610,10 +622,10 @@
 
     .service-panel h2 {
       margin: 0;
-      font-family: "Oswald", sans-serif;
-      font-size: clamp(3rem, 5vw, 4.4rem);
-      font-weight: 900;
-      letter-spacing: 0.025em;
+      font-family: "Anton", sans-serif;
+      font-size: clamp(2.8rem, 5vw, 4.1rem);
+      font-weight: 400;
+      letter-spacing: 0.01em;
       line-height: 0.95;
       text-transform: uppercase;
     }
@@ -622,9 +634,8 @@
       display: block;
       margin: 7px 0 18px;
       color: var(--teal);
-      font-family: "Yellowtail", cursive;
-      font-size: 1.65rem;
-      font-weight: 400;
+      font-family: "Satisfy", cursive;
+      font-size: 1.6rem;
       line-height: 1.2;
     }
 
@@ -633,9 +644,7 @@
       color: #c8dce4;
     }
 
-    /* =====================================================
-       HOURS
-    ===================================================== */
+    /* HOURS */
 
     .hours {
       background: var(--cream);
@@ -653,8 +662,8 @@
     .hours-heading {
       display: grid;
       align-content: center;
-      min-height: 400px;
-      padding: 55px;
+      min-height: 380px;
+      padding: 52px;
       background:
         linear-gradient(
           rgba(3, 27, 42, 0.72),
@@ -668,16 +677,16 @@
 
     .hours-heading h2 {
       margin: 0;
-      font-family: "Oswald", sans-serif;
-      font-size: clamp(3.3rem, 6vw, 5rem);
-      font-weight: 900;
-      letter-spacing: 0.03em;
+      font-family: "Anton", sans-serif;
+      font-size: clamp(3rem, 6vw, 4.7rem);
+      font-weight: 400;
+      letter-spacing: 0.02em;
       line-height: 0.9;
       text-transform: uppercase;
     }
 
     .hours-heading p {
-      margin: 18px 0 0;
+      margin: 16px 0 0;
       color: #d2e9ee;
     }
 
@@ -685,7 +694,7 @@
       display: grid;
       align-content: center;
       gap: 20px;
-      padding: 55px;
+      padding: 52px;
     }
 
     .hours-row {
@@ -693,7 +702,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 25px;
-      padding-bottom: 20px;
+      padding-bottom: 19px;
       border-bottom: 1px solid var(--border);
     }
 
@@ -705,21 +714,19 @@
     .hours-row strong {
       color: var(--navy);
       font-family: "Oswald", sans-serif;
-      font-size: 1.35rem;
-      font-weight: 800;
-      letter-spacing: 0.025em;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
       text-transform: uppercase;
     }
 
     .hours-row span {
       color: var(--orange);
-      font-weight: 800;
+      font-weight: 700;
       text-align: right;
     }
 
-    /* =====================================================
-       OUTDOOR ADDICTS
-    ===================================================== */
+    /* OUTDOOR ADDICTS */
 
     .outdoor {
       background: var(--white);
@@ -728,8 +735,8 @@
     .outdoor-card {
       display: grid;
       align-items: center;
-      gap: 55px;
-      padding: 52px;
+      gap: 50px;
+      padding: 48px;
       border: 1px solid var(--border);
       border-radius: var(--radius);
       background:
@@ -743,16 +750,16 @@
     }
 
     .outdoor-logo {
-      width: min(100%, 410px);
+      width: min(100%, 400px);
       margin-inline: auto;
     }
 
     .outdoor-copy h2 {
       margin: 0;
       color: var(--navy);
-      font-family: "Oswald", sans-serif;
-      font-size: clamp(2.8rem, 5vw, 4rem);
-      font-weight: 900;
+      font-family: "Anton", sans-serif;
+      font-size: clamp(2.6rem, 5vw, 3.8rem);
+      font-weight: 400;
       line-height: 0.95;
       text-transform: uppercase;
     }
@@ -761,12 +768,10 @@
       color: var(--muted);
     }
 
-    /* =====================================================
-       FACEBOOK
-    ===================================================== */
+    /* FACEBOOK */
 
     .facebook {
-      padding: 85px 0;
+      padding: 80px 0;
       background:
         linear-gradient(
           rgba(3, 27, 42, 0.82),
@@ -780,16 +785,16 @@
     }
 
     .facebook-content {
-      max-width: 740px;
+      max-width: 720px;
       margin-inline: auto;
     }
 
     .facebook h2 {
       margin: 0;
-      font-family: "Oswald", sans-serif;
-      font-size: clamp(3rem, 6vw, 4.8rem);
-      font-weight: 900;
-      letter-spacing: 0.02em;
+      font-family: "Anton", sans-serif;
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-weight: 400;
+      letter-spacing: 0.015em;
       line-height: 0.92;
       text-transform: uppercase;
     }
@@ -798,9 +803,8 @@
       display: block;
       margin-top: 9px;
       color: var(--teal);
-      font-family: "Yellowtail", cursive;
-      font-size: clamp(1.4rem, 3vw, 2rem);
-      font-weight: 400;
+      font-family: "Satisfy", cursive;
+      font-size: clamp(1.35rem, 3vw, 1.95rem);
       text-transform: none;
     }
 
@@ -812,42 +816,40 @@
       justify-content: center;
     }
 
-    /* =====================================================
-       FOOTER
-    ===================================================== */
+    /* FOOTER */
 
     .site-footer {
-      padding: 60px 0 25px;
+      padding: 58px 0 24px;
       background: var(--navy-dark);
       color: var(--white);
     }
 
     .footer-grid {
       display: grid;
-      gap: 45px;
+      gap: 42px;
       grid-template-columns: 1.2fr 1fr 1fr;
     }
 
     .footer-logo {
-      width: 145px;
-      margin-bottom: 15px;
+      width: 135px;
+      margin-bottom: 14px;
       filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.2));
     }
 
     .footer-heading {
-      margin: 0 0 14px;
+      margin: 0 0 13px;
       color: var(--teal);
       font-family: "Oswald", sans-serif;
-      font-size: 1.15rem;
-      font-weight: 800;
-      letter-spacing: 0.11em;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
       text-transform: uppercase;
     }
 
     .footer-text,
     .footer-link {
       color: #c2d7df;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
     }
 
     .footer-link {
@@ -862,39 +864,52 @@
     }
 
     .copyright {
-      margin-top: 45px;
-      padding-top: 22px;
+      margin-top: 42px;
+      padding-top: 20px;
       border-top: 1px solid rgba(255, 255, 255, 0.14);
       color: #8da5af;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       text-align: center;
     }
 
-    /* =====================================================
-       RESPONSIVE
-    ===================================================== */
 
-    @media (max-width: 1000px) {
+    @media (min-width: 1441px) {
+      body {
+        padding: 24px 0;
+      }
+
+      .site-header,
+      main,
+      .site-footer {
+        border-right: 1px solid rgba(3, 27, 42, 0.14);
+        border-left: 1px solid rgba(3, 27, 42, 0.14);
+      }
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 1040px) {
       .nav-wrap {
-        padding-left: 210px;
+        min-height: 86px;
+        padding-left: 220px;
       }
 
       .nav-links {
-        gap: 16px;
+        gap: 14px;
       }
 
       .hero-logo {
-        width: 220px;
+        width: 195px;
       }
 
       .hero-copy {
-        padding-top: 250px;
+        padding-top: 205px;
       }
     }
 
     @media (max-width: 900px) {
       .nav-wrap {
-        min-height: 72px;
+        min-height: 78px;
         justify-content: flex-end;
         padding-left: 0;
       }
@@ -930,12 +945,12 @@
       .nav-links a {
         padding: 15px 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        font-size: 1.2rem;
+        font-size: 1.15rem;
       }
 
       .hero,
       .hero-inner {
-        min-height: 735px;
+        min-height: 700px;
       }
 
       .hero {
@@ -943,17 +958,17 @@
       }
 
       .hero-inner {
-        padding-top: 72px;
+        padding-top: 78px;
       }
 
       .hero-logo {
-        top: 22px;
-        width: 185px;
+        top: 14px;
+        width: 178px;
       }
 
       .hero-copy {
-        width: min(100%, 540px);
-        padding-top: 225px;
+        width: min(100%, 500px);
+        padding-top: 205px;
       }
 
       .intro-grid,
@@ -974,7 +989,7 @@
       .service-panel:first-child,
       .service-panel:last-child {
         min-height: auto;
-        padding: 65px max(25px, calc((100vw - 700px) / 2));
+        padding: 60px max(24px, calc((100vw - 700px) / 2));
       }
 
       .specials-heading {
@@ -992,12 +1007,12 @@
       }
 
       .section {
-        padding: 70px 0;
+        padding: 68px 0;
       }
 
       .hero,
       .hero-inner {
-        min-height: 720px;
+        min-height: 690px;
       }
 
       .hero {
@@ -1005,27 +1020,30 @@
       }
 
       .hero-logo {
-        top: 22px;
-        left: 0;
-        width: 155px;
+        top: 14px;
+        width: 160px;
       }
 
       .hero-copy {
-        padding-top: 205px;
+        padding-top: 190px;
       }
 
       .hero h1 {
-        font-size: clamp(0.78rem, 1vw, 0.92rem);
-        line-height: 0.82;
+        font-size: clamp(3.2rem, 15vw, 4.4rem);
+        line-height: 0.84;
       }
 
       .hero-subtitle {
-        font-size: 1.55rem;
+        font-size: 1.5rem;
       }
 
       .hero-description {
-        max-width: 410px;
-        font-size: 0.94rem;
+        max-width: 400px;
+        font-size: 0.9rem;
+      }
+
+      .hero-message {
+        border-radius: 7px;
       }
 
       .button-row {
@@ -1038,7 +1056,7 @@
       }
 
       .marina-card {
-        min-height: 340px;
+        min-height: 330px;
       }
 
       .special-card {
@@ -1048,11 +1066,11 @@
       .hours-heading,
       .hours-list,
       .outdoor-card {
-        padding: 35px 25px;
+        padding: 34px 24px;
       }
 
       .hours-heading {
-        min-height: 320px;
+        min-height: 300px;
       }
 
       .hours-row {
@@ -1070,7 +1088,7 @@
       }
     }
 
-@media (prefers-reduced-motion: reduce) {
+    @media (prefers-reduced-motion: reduce) {
       html {
         scroll-behavior: auto;
       }
@@ -1078,7 +1096,6 @@
       *,
       *::before,
       *::after {
-        scroll-behavior: auto !important;
         transition-duration: 0.01ms !important;
       }
     }
@@ -1086,7 +1103,6 @@
 </head>
 
 <body>
-  <!-- No small logo or business name in the navigation -->
   <header class="site-header">
     <div class="container nav-wrap">
       <button
@@ -1146,7 +1162,9 @@
           </h1>
 
           <p class="hero-subtitle">
-            in Venice, Louisiana
+            <span class="subtitle-in">in</span>
+            <span class="subtitle-venice">Venice,</span>
+            <span class="subtitle-la">Louisiana</span>
           </p>
 
           <div class="hero-anchor" aria-hidden="true">
@@ -1190,8 +1208,6 @@
         </div>
       </div>
     </section>
-
-<!-- INTRODUCTION -->
 
     <section class="section intro">
       <div class="container intro-grid">
@@ -1254,8 +1270,6 @@
         </div>
       </div>
     </section>
-
-    <!-- WEEKLY SPECIALS -->
 
     <section id="specials" class="section specials">
       <div class="container">
@@ -1342,8 +1356,6 @@
       </div>
     </section>
 
-    <!-- CATERING AND EVENTS -->
-
     <section class="services">
       <div class="services-grid">
         <article id="catering" class="service-panel">
@@ -1404,8 +1416,6 @@
       </div>
     </section>
 
-    <!-- HOURS -->
-
     <section class="section hours">
       <div class="container">
         <div class="hours-card">
@@ -1439,8 +1449,6 @@
         </div>
       </div>
     </section>
-
-    <!-- OUTDOOR ADDICTS -->
 
     <section id="outdoor-addicts" class="section outdoor">
       <div class="container">
@@ -1486,8 +1494,6 @@
       </div>
     </section>
 
-    <!-- FACEBOOK -->
-
     <section class="facebook">
       <div class="container facebook-content">
         <p class="eyebrow">Stay connected</p>
@@ -1528,8 +1534,6 @@
       </div>
     </section>
   </main>
-
-  <!-- FOOTER -->
 
   <footer class="site-footer">
     <div class="container">
@@ -1635,7 +1639,7 @@
     });
 
     window.addEventListener("resize", () => {
-      if (window.innerWidth > 980) {
+      if (window.innerWidth > 900) {
         closeMenu();
       }
     });
