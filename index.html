@@ -143,15 +143,15 @@
 
     .button {
       display: inline-flex;
-      min-height: 48px;
+      min-height: 42px;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 12px 21px;
+      padding: 10px 17px;
       border: 2px solid transparent;
       border-radius: 5px;
       font-family: "Oswald", sans-serif;
-      font-size: 0.95rem;
+      font-size: 0.86rem;
       font-weight: 700;
       letter-spacing: 0.055em;
       line-height: 1;
@@ -169,17 +169,17 @@
     }
 
     .button-blue {
-      background: var(--blue);
+      background: rgba(7, 133, 189, 0.88);
       color: var(--white);
     }
 
     .button-orange {
-      background: var(--orange);
+      background: rgba(239, 109, 34, 0.88);
       color: var(--white);
     }
 
     .button-teal {
-      background: var(--teal);
+      background: rgba(85, 214, 214, 0.88);
       color: var(--navy-dark);
     }
 
@@ -319,14 +319,17 @@
       top: 24px;
       left: 0;
       z-index: 100;
-      width: 240px;
+      width: 275px;
       height: auto;
       filter: drop-shadow(0 12px 16px rgba(0, 0, 0, 0.38));
+      transition:
+        opacity 160ms ease,
+        visibility 160ms ease;
     }
 
     .hero-copy {
       width: min(100%, 520px);
-      padding-top: 242px;
+      padding-top: 268px;
     }
 
     .hero h1 {
@@ -918,8 +921,8 @@
     }
 
     .button svg {
-      width: 17px;
-      height: 17px;
+      width: 15px;
+      height: 15px;
       flex: 0 0 auto;
       fill: currentColor;
     }
@@ -1030,11 +1033,11 @@
 
       .hero-logo {
         top: 20px;
-        width: 215px;
+        width: 240px;
       }
 
       .hero-copy {
-        padding-top: 225px;
+        padding-top: 248px;
       }
     }
 
@@ -1048,13 +1051,14 @@
       .menu-toggle {
         display: inline-flex;
         position: relative;
-        z-index: 1100;
+        z-index: 1300;
       }
 
       .nav-links {
         position: fixed;
         top: 0;
         right: 0;
+        z-index: 1200;
         display: none;
         width: min(340px, 88vw);
         height: 100vh;
@@ -1071,6 +1075,16 @@
 
       .nav-links.open {
         display: flex;
+      }
+
+      body.menu-open .hero-logo {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      body.menu-open .hero-copy {
+        visibility: hidden;
       }
 
       .nav-links a {
@@ -1094,12 +1108,12 @@
 
       .hero-logo {
         top: 18px;
-        width: 190px;
+        width: 210px;
       }
 
       .hero-copy {
         width: min(100%, 500px);
-        padding-top: 220px;
+        padding-top: 238px;
       }
 
       .intro-grid,
@@ -1170,11 +1184,11 @@
 
       .hero-logo {
         top: 18px;
-        width: 170px;
+        width: 188px;
       }
 
       .hero-copy {
-        padding-top: 205px;
+        padding-top: 220px;
       }
 
       .hero h1 {
