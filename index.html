@@ -2,53 +2,1452 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Da Dock Bar & Grill offers waterfront dining, fresh seafood, weekly specials, catering, special events, and entertainment at Cypress Cove Marina in Venice, Louisiana."
+  >
+
+  <meta
+    name="theme-color"
+    content="#062b44"
+  >
 
   <title>Da Dock Bar & Grill | Venice, Louisiana</title>
 
   <style>
+    :root {
+      --navy: #062b44;
+      --navy-dark: #031d2e;
+      --blue: #087caf;
+      --teal: #20a8ad;
+      --orange: #ef6d22;
+      --cream: #f8f3e8;
+      --white: #ffffff;
+      --text: #183041;
+      --muted: #61717c;
+      --border: rgba(6, 43, 68, 0.14);
+      --shadow: 0 18px 45px rgba(3, 29, 46, 0.16);
+      --radius: 18px;
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f7f2e8;
-      color: #102f46;
+      color: var(--text);
+      background: var(--cream);
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+      line-height: 1.6;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    section {
+      scroll-margin-top: 86px;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--max-width));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--orange);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      line-height: 1.05;
+    }
+
+    .section-intro {
+      max-width: 680px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 50px;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 13px 22px;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-align: center;
+      text-transform: uppercase;
+      transition:
+        transform 180ms ease,
+        background 180ms ease,
+        box-shadow 180ms ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(3, 29, 46, 0.2);
+    }
+
+    .button-primary {
+      background: var(--orange);
+      color: var(--white);
+    }
+
+    .button-secondary {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .button-teal {
+      background: var(--teal);
+      color: var(--navy-dark);
+    }
+
+    .button-outline {
+      border-color: rgba(255, 255, 255, 0.75);
+      background: rgba(3, 29, 46, 0.2);
+      color: var(--white);
+      backdrop-filter: blur(5px);
+    }
+
+    /* Header */
+
+    .site-header {
+      position: sticky;
+      z-index: 1000;
+      top: 0;
+      background: rgba(3, 29, 46, 0.97);
+      color: var(--white);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-wrap {
+      display: flex;
+      min-height: 78px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      width: 66px;
+      height: 66px;
+      object-fit: contain;
+    }
+
+    .brand-text {
+      line-height: 1.15;
+    }
+
+    .brand-name {
+      display: block;
+      font-weight: 900;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .brand-location {
+      display: block;
+      margin-top: 4px;
+      color: #a9dfe8;
+      font-size: 0.73rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      position: relative;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .nav-links a::after {
+      position: absolute;
+      right: 0;
+      bottom: -7px;
+      left: 0;
+      height: 2px;
+      background: var(--teal);
+      content: "";
+      transform: scaleX(0);
+      transition: transform 180ms ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after {
+      transform: scaleX(1);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 7px;
+      background: transparent;
+      color: var(--white);
+      cursor: pointer;
+      font-size: 1.35rem;
+    }
+
+    /* Hero */
+
+    .hero {
+      position: relative;
+      display: grid;
+      min-height: 690px;
+      align-items: center;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(3, 21, 34, 0.9) 0%,
+          rgba(3, 29, 46, 0.72) 43%,
+          rgba(3, 29, 46, 0.18) 80%
+        ),
+        linear-gradient(
+          0deg,
+          rgba(3, 29, 46, 0.48),
+          transparent 45%
+        ),
+        url("assets/marina-photo.jpg")
+        center center / cover
+        no-repeat;
+      color: var(--white);
+    }
+
+    .hero-content {
+      max-width: 680px;
+      padding-block: 90px;
+    }
+
+    .hero-logo {
+      width: clamp(135px, 19vw, 205px);
+      margin-bottom: 18px;
+      filter: drop-shadow(0 12px 16px rgba(0, 0, 0, 0.35));
+    }
+
+    .hero h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(3.2rem, 9vw, 6.5rem);
+      font-weight: 900;
+      letter-spacing: -0.045em;
+      line-height: 0.9;
+      text-transform: uppercase;
+      text-shadow: 0 4px 22px rgba(0, 0, 0, 0.35);
+    }
+
+    .hero h1 span {
+      display: block;
+      margin-top: 18px;
+      color: #80e2e4;
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+      font-size: clamp(1.65rem, 4vw, 3rem);
+      font-style: italic;
+      font-weight: 500;
+      letter-spacing: 0;
+      line-height: 1.1;
+      text-transform: none;
+    }
+
+    .hero-description {
+      max-width: 590px;
+      margin: 25px 0 0;
+      color: rgba(255, 255, 255, 0.92);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+    }
+
+    .hero-notice {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 24px;
+      padding: 10px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 999px;
+      background: rgba(3, 29, 46, 0.4);
+      color: #dffbff;
+      font-size: 0.86rem;
+      font-weight: 700;
+      backdrop-filter: blur(5px);
+    }
+
+    /* Welcome */
+
+    .welcome {
+      padding: 100px 0;
+      background: var(--cream);
+    }
+
+    .welcome-grid {
+      display: grid;
+      align-items: center;
+      gap: 65px;
+      grid-template-columns: 0.9fr 1.1fr;
+    }
+
+    .welcome-copy p:not(.eyebrow) {
+      color: var(--muted);
+      font-size: 1.06rem;
+    }
+
+    .feature-image {
+      position: relative;
+      min-height: 430px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(
+          0deg,
+          rgba(3, 29, 46, 0.35),
+          rgba(3, 29, 46, 0.03)
+        ),
+        url("assets/marina-photo.jpg")
+        center / cover
+        no-repeat;
+      box-shadow: var(--shadow);
+    }
+
+    .feature-image-label {
+      position: absolute;
+      right: 24px;
+      bottom: 24px;
+      left: 24px;
+      padding: 17px 20px;
+      border-left: 4px solid var(--orange);
+      border-radius: 6px;
+      background: rgba(3, 29, 46, 0.88);
+      color: var(--white);
+    }
+
+    .feature-image-label strong {
+      display: block;
+      font-size: 1.05rem;
+      text-transform: uppercase;
+    }
+
+    .feature-image-label span {
+      color: #cbeaf0;
+      font-size: 0.9rem;
+    }
+
+    /* Weekly features */
+
+    .weekly {
+      padding: 95px 0;
+      background: var(--white);
+    }
+
+    .weekly-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 42px;
+    }
+
+    .special-grid {
+      display: grid;
+      gap: 22px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .special-card {
+      position: relative;
+      min-height: 320px;
+      overflow: hidden;
+      padding: 32px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.97),
+          rgba(248, 243, 232, 0.84)
+        );
+      box-shadow: 0 12px 32px rgba(3, 29, 46, 0.08);
+    }
+
+    .special-card::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 7px;
+      background: var(--orange);
+      content: "";
+    }
+
+    .special-card:nth-child(2)::before {
+      background: var(--teal);
+    }
+
+    .special-card:nth-child(3)::before {
+      background: var(--blue);
+    }
+
+    .special-day {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .special-icon {
+      margin-bottom: 15px;
+      font-size: 2.2rem;
+    }
+
+    .special-card h3 {
+      margin: 0 0 12px;
+      color: var(--navy);
+      font-size: 1.65rem;
+      line-height: 1.1;
+    }
+
+    .special-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .special-note {
+      display: block;
+      margin-top: 18px;
+      color: var(--orange);
+      font-size: 0.84rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    /* Catering and events */
+
+    .experiences {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .experience-panel {
+      min-height: 400px;
+      padding: 70px max(35px, calc((100vw - var(--max-width)) / 2));
+    }
+
+    .experience-panel:first-child {
+      padding-right: 60px;
+      background:
+        radial-gradient(
+          circle at top left,
+          rgba(32, 168, 173, 0.18),
+          transparent 45%
+        );
+    }
+
+    .experience-panel:last-child {
+      padding-right: max(35px, calc((100vw - var(--max-width)) / 2));
+      padding-left: 60px;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(239, 109, 34, 0.12),
+          transparent
+        ),
+        var(--navy-dark);
+    }
+
+    .experience-panel h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.15rem);
+      line-height: 1;
+    }
+
+    .experience-panel p {
+      max-width: 520px;
+      color: #c5dbe4;
+    }
+
+    /* Hours */
+
+    .hours {
+      padding: 90px 0;
+      background: var(--cream);
+    }
+
+    .hours-grid {
+      display: grid;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+      grid-template-columns: 0.9fr 1.1fr;
+    }
+
+    .hours-title {
+      display: grid;
+      align-content: center;
+      padding: 55px;
+      background:
+        linear-gradient(
+          rgba(3, 29, 46, 0.75),
+          rgba(3, 29, 46, 0.78)
+        ),
+        url("assets/marina-photo.jpg")
+        center / cover
+        no-repeat;
+      color: var(--white);
+    }
+
+    .hours-title h2 {
+      margin: 0;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      line-height: 1;
+    }
+
+    .hours-title p {
+      margin-bottom: 0;
+      color: #d7edf2;
+    }
+
+    .hours-list {
+      display: grid;
+      align-content: center;
+      gap: 18px;
+      padding: 55px;
+    }
+
+    .hours-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hours-row:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .hours-row strong {
+      color: var(--navy);
+      font-size: 1.05rem;
+    }
+
+    .hours-row span {
+      color: var(--orange);
+      font-weight: 800;
+      text-align: right;
+    }
+
+    /* Outdoor Addicts */
+
+    .outdoor {
+      padding: 70px 0;
+      background: var(--white);
+    }
+
+    .outdoor-card {
+      display: grid;
+      align-items: center;
+      gap: 55px;
+      padding: 50px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(
+          120deg,
+          #ffffff,
+          #f6f3eb
+        );
+      box-shadow: 0 12px 34px rgba(3, 29, 46, 0.09);
+      grid-template-columns: 0.8fr 1.2fr;
+    }
+
+    .outdoor-logo {
+      width: min(100%, 420px);
+      margin-inline: auto;
+    }
+
+    .outdoor-copy h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.05;
+    }
+
+    .outdoor-copy p {
+      color: var(--muted);
+    }
+
+    /* Social CTA */
+
+    .social {
+      padding: 80px 0;
+      background:
+        linear-gradient(
+          rgba(3, 29, 46, 0.83),
+          rgba(3, 29, 46, 0.88)
+        ),
+        url("assets/marina-photo.jpg")
+        center / cover
+        no-repeat;
+      color: var(--white);
       text-align: center;
     }
 
-    header {
-      background: #082b43;
-      color: white;
-      padding: 24px;
+    .social-content {
+      max-width: 720px;
+      margin-inline: auto;
     }
 
-    main {
-      padding: 80px 20px;
+    .social h2 {
+      margin: 0;
+      font-size: clamp(2.1rem, 5vw, 3.8rem);
+      line-height: 1.05;
     }
 
-    h1 {
-      font-size: 48px;
-      margin-bottom: 12px;
+    .social p {
+      color: #d4e9ee;
+      font-size: 1.05rem;
     }
 
-    p {
-      font-size: 20px;
-      line-height: 1.6;
+    .social .button-row {
+      justify-content: center;
+    }
+
+    /* Footer */
+
+    .site-footer {
+      padding: 60px 0 25px;
+      background: var(--navy-dark);
+      color: var(--white);
+    }
+
+    .footer-grid {
+      display: grid;
+      gap: 40px;
+      grid-template-columns: 1.2fr 1fr 1fr;
+    }
+
+    .footer-logo {
+      width: 115px;
+      margin-bottom: 18px;
+    }
+
+    .footer-heading {
+      margin: 0 0 13px;
+      color: #8ee1e2;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .footer-text,
+    .footer-link {
+      color: #c1d6df;
+      font-size: 0.94rem;
+    }
+
+    .footer-link {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .footer-link:hover,
+    .footer-link:focus-visible {
+      color: var(--white);
+      text-decoration: underline;
+    }
+
+    .copyright {
+      margin-top: 45px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+      color: #91aab5;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 900px) {
+      .menu-toggle {
+        display: inline-grid;
+        place-items: center;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 78px;
+        right: 0;
+        left: 0;
+        display: none;
+        max-height: calc(100vh - 78px);
+        align-items: stretch;
+        padding: 26px 30px 40px;
+        overflow-y: auto;
+        background: var(--navy-dark);
+        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.25);
+        flex-direction: column;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 13px 0;
+        font-size: 1rem;
+      }
+
+      .welcome-grid,
+      .hours-grid,
+      .outdoor-card {
+        grid-template-columns: 1fr;
+      }
+
+      .special-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-panel,
+      .experience-panel:first-child,
+      .experience-panel:last-child {
+        min-height: auto;
+        padding: 60px max(24px, calc((100vw - 700px) / 2));
+      }
+
+      .feature-image {
+        min-height: 360px;
+      }
+
+      .weekly-heading {
+        display: block;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .container {
+        width: min(calc(100% - 28px), var(--max-width));
+      }
+
+      .brand-text {
+        display: none;
+      }
+
+      .brand-logo {
+        width: 60px;
+        height: 60px;
+      }
+
+      .nav-wrap {
+        min-height: 72px;
+      }
+
+      .nav-links {
+        top: 72px;
+        max-height: calc(100vh - 72px);
+      }
+
+      .hero {
+        min-height: 680px;
+        background-position: 58% center;
+      }
+
+      .hero-content {
+        padding-block: 65px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3rem, 16vw, 4.8rem);
+      }
+
+      .hero h1 span {
+        font-size: 1.75rem;
+      }
+
+      .button-row {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .welcome,
+      .weekly,
+      .hours {
+        padding: 70px 0;
+      }
+
+      .special-card {
+        min-height: auto;
+      }
+
+      .hours-title,
+      .hours-list,
+      .outdoor-card {
+        padding: 35px 25px;
+      }
+
+      .hours-row {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .hours-row span {
+        text-align: left;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+      }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <h2>Da Dock Bar & Grill</h2>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a
+        class="brand"
+        href="#home"
+        aria-label="Da Dock Bar and Grill home"
+      >
+        <img
+          class="brand-logo"
+          src="assets/da-dock-logo.png"
+          alt="Da Dock Bar and Grill logo"
+        >
+
+        <span class="brand-text">
+          <span class="brand-name">Da Dock Bar &amp; Grill</span>
+          <span class="brand-location">Venice, Louisiana</span>
+        </span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="site-navigation"
+      >
+        ☰
+      </button>
+
+      <nav
+        id="site-navigation"
+        class="nav-links"
+        aria-label="Main navigation"
+      >
+        <a href="#home">Home</a>
+
+        <a
+          href="https://orders.cake.net/11580650"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Menu
+        </a>
+
+        <a href="#specials">Specials</a>
+        <a href="#catering">Catering</a>
+        <a href="#events">Events</a>
+        <a href="#outdoor-addicts">Outdoor Addicts</a>
+
+        <a
+          href="https://www.facebook.com/people/Da-Dock-Bar-and-Grill/61575442389273/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Facebook
+        </a>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <h1>Website Coming Soon</h1>
+    <section
+      id="home"
+      class="hero"
+    >
+      <div class="container hero-content">
+        <img
+          class="hero-logo"
+          src="assets/da-dock-logo.png"
+          alt="Da Dock Bar and Grill at Cypress Cove Marina"
+        >
 
-    <p>
-      Waterfront dining, fresh seafood, cold drinks, catering,
-      and special events in Venice, Louisiana.
-    </p>
+        <h1>
+          Waterfront Dining
+
+          <span>in Venice, Louisiana</span>
+        </h1>
+
+        <p class="hero-description">
+          Fresh seafood, cold drinks, weekly specials,
+          catering, live entertainment, and unforgettable
+          waterfront views at Cypress Cove Marina.
+        </p>
+
+        <div class="hero-notice">
+          ⚓ Upstairs dining and downstairs entertainment
+        </div>
+
+        <div class="button-row">
+          <a
+            class="button button-secondary"
+            href="https://orders.cake.net/11580650"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            🍴 View Menu
+          </a>
+
+          <a
+            class="button button-primary"
+            href="#catering"
+          >
+            Book Catering
+          </a>
+
+          <a
+            class="button button-teal"
+            href="#events"
+          >
+            Plan an Event
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="welcome">
+      <div class="container welcome-grid">
+        <div class="welcome-copy">
+          <p class="eyebrow">Good food. Cold drinks. Great views.</p>
+
+          <h2 class="section-title">
+            Welcome to Da Dock
+          </h2>
+
+          <p>
+            Located at Cypress Cove Marina in Venice,
+            Da Dock Bar &amp; Grill brings together
+            waterfront dining, Louisiana flavor, and a
+            relaxed coastal atmosphere.
+          </p>
+
+          <p>
+            Join us upstairs for lunch or dinner, then
+            head downstairs for drinks, entertainment,
+            and good times by the water.
+          </p>
+
+          <div class="button-row">
+            <a
+              class="button button-secondary"
+              href="https://orders.cake.net/11580650"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Order Online
+            </a>
+
+            <a
+              class="button button-primary"
+              href="https://www.facebook.com/people/Da-Dock-Bar-and-Grill/61575442389273/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Latest on Facebook
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="feature-image"
+          role="img"
+          aria-label="Cypress Cove Marina at sunset"
+        >
+          <div class="feature-image-label">
+            <strong>Cypress Cove Marina</strong>
+            <span>Venice, Louisiana</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="specials"
+      class="weekly"
+    >
+      <div class="container">
+        <div class="weekly-heading">
+          <div>
+            <p class="eyebrow">Featured at Da Dock</p>
+
+            <h2 class="section-title">
+              Weekly Favorites
+            </h2>
+          </div>
+
+          <p class="section-intro">
+            Come hungry and make Da Dock part of your
+            weekly routine.
+          </p>
+        </div>
+
+        <div class="special-grid">
+          <article class="special-card">
+            <span class="special-day">Every Tuesday</span>
+
+            <div class="special-icon" aria-hidden="true">
+              🌮
+            </div>
+
+            <h3>Taco Tuesday</h3>
+
+            <p>
+              Join us every Tuesday for tacos, cold
+              drinks, and a waterfront atmosphere that
+              is hard to beat.
+            </p>
+
+            <span class="special-note">
+              Follow Facebook for current specials
+            </span>
+          </article>
+
+          <article class="special-card">
+            <span class="special-day">Every Thursday</span>
+
+            <div class="special-icon" aria-hidden="true">
+              🥩
+            </div>
+
+            <h3>Steak Night</h3>
+
+            <p>
+              Thursday Steak Night features fresh,
+              locally sourced beef from Voiron’s,
+              a local Louisiana meat market.
+            </p>
+
+            <span class="special-note">
+              Fresh local beef
+            </span>
+          </article>
+
+          <article class="special-card">
+            <span class="special-day">Your Catch</span>
+
+            <div class="special-icon" aria-hidden="true">
+              🎣
+            </div>
+
+            <h3>Catch &amp; Cook</h3>
+
+            <p>
+              Bring in your fresh catch and let the Da
+              Dock kitchen turn your day on the water
+              into a meal to remember.
+            </p>
+
+            <span class="special-note">
+              Ask about preparation options
+            </span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="experiences">
+      <div class="experience-grid">
+        <article
+          id="catering"
+          class="experience-panel"
+        >
+          <p class="eyebrow">Bring Da Dock to your gathering</p>
+
+          <h2>Catering</h2>
+
+          <p>
+            Planning a company meal, family gathering,
+            fishing trip, celebration, or group event?
+            Ask about Da Dock catering options created
+            for groups of all sizes.
+          </p>
+
+          <div class="button-row">
+            <a
+              class="button button-primary"
+              href="https://www.facebook.com/people/Da-Dock-Bar-and-Grill/61575442389273/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Contact Us on Facebook
+            </a>
+          </div>
+        </article>
+
+        <article
+          id="events"
+          class="experience-panel"
+        >
+          <p class="eyebrow">Celebrate on the waterfront</p>
+
+          <h2>Special Events</h2>
+
+          <p>
+            Da Dock offers a memorable marina setting
+            for birthdays, reunions, company gatherings,
+            private celebrations, live entertainment,
+            and other special occasions.
+          </p>
+
+          <div class="button-row">
+            <a
+              class="button button-teal"
+              href="https://www.facebook.com/people/Da-Dock-Bar-and-Grill/61575442389273/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Plan Your Event
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="hours">
+      <div class="container">
+        <div class="hours-grid">
+          <div class="hours-title">
+            <p class="eyebrow">Come see us</p>
+
+            <h2>Hours</h2>
+
+            <p>
+              Waterfront dining upstairs and
+              entertainment downstairs.
+            </p>
+          </div>
+
+          <div class="hours-list">
+            <div class="hours-row">
+              <strong>Upstairs Dining</strong>
+              <span>Monday–Friday · 11 AM–10 PM</span>
+            </div>
+
+            <div class="hours-row">
+              <strong>Downstairs Entertainment</strong>
+              <span>4 PM–Till</span>
+            </div>
+
+            <div class="hours-row">
+              <strong>Current Updates</strong>
+
+              <span>
+                Check Facebook for announcements
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="outdoor-addicts"
+      class="outdoor"
+    >
+      <div class="container">
+        <div class="outdoor-card">
+          <div>
+            <img
+              class="outdoor-logo"
+              src="assets/outdoor-addicts-logo.webp"
+              alt="Outdoor Addicts logo"
+            >
+          </div>
+
+          <div class="outdoor-copy">
+            <p class="eyebrow">Featured sister company</p>
+
+            <h2>
+              Adventure Starts in Venice
+            </h2>
+
+            <p>
+              Outdoor Addicts offers all-inclusive
+              inshore and offshore fishing, hunting,
+              guided adventures, lodging, equipment,
+              and customized packages in Venice,
+              Louisiana.
+            </p>
+
+            <div class="button-row">
+              <a
+                class="button button-secondary"
+                href="https://theoutdooraddicts.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Visit Outdoor Addicts
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="social">
+      <div class="container social-content">
+        <p class="eyebrow">Stay connected</p>
+
+        <h2>
+          Follow Da Dock on Facebook
+        </h2>
+
+        <p>
+          Follow the official Facebook page for current
+          food specials, entertainment announcements,
+          event information, and updates from the marina.
+        </p>
+
+        <div class="button-row">
+          <a
+            class="button button-primary"
+            href="https://www.facebook.com/people/Da-Dock-Bar-and-Grill/61575442389273/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visit Facebook
+          </a>
+
+          <a
+            class="button button-outline"
+            href="https://orders.cake.net/11580650"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View Menu
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img
+            class="footer-logo"
+            src="assets/da-dock-logo.png"
+            alt="Da Dock Bar and Grill"
+          >
+
+          <p class="footer-text">
+            Waterfront dining, cold drinks, catering,
+            entertainment, and special events at
+            Cypress Cove Marina in Venice, Louisiana.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="footer-heading">Hours</h2>
+
+          <p class="footer-text">
+            Upstairs Dining<br>
+            Monday–Friday<br>
+            11 AM–10 PM
+          </p>
+
+          <p class="footer-text">
+            Downstairs Entertainment<br>
+            4 PM–Till
+          </p>
+        </div>
+
+        <div>
+          <h2 class="footer-heading">Quick Links</h2>
+
+          <a
+            class="footer-link"
+            href="https://orders.cake.net/11580650"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View Menu
+          </a>
+
+          <a
+            class="footer-link"
+            href="https://www.facebook.com/people/Da-Dock-Bar-and-Grill/61575442389273/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Facebook
+          </a>
+
+          <a
+            class="footer-link"
+            href="https://theoutdooraddicts.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Outdoor Addicts
+          </a>
+        </div>
+      </div>
+
+      <div class="copyright">
+        © <span id="current-year"></span>
+        Da Dock Bar &amp; Grill LLC. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuButton = document.querySelector(".menu-toggle");
+    const navigation = document.querySelector(".nav-links");
+    const navigationLinks = document.querySelectorAll(".nav-links a");
+
+    function closeMenu() {
+      navigation.classList.remove("open");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.textContent = "☰";
+      document.body.classList.remove("menu-open");
+    }
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = navigation.classList.toggle("open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+
+      menuButton.textContent = isOpen ? "✕" : "☰";
+      document.body.classList.toggle("menu-open", isOpen);
+    });
+
+    navigationLinks.forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 900) {
+        closeMenu();
+      }
+    });
+
+    document.getElementById("current-year").textContent =
+      new Date().getFullYear();
+  </script>
 </body>
 </html>
