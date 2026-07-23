@@ -1537,6 +1537,117 @@
       }
     }
 
+
+    /* MOBILE-ONLY LAYOUT REFINEMENTS */
+    @media (max-width: 900px) {
+      /* Pull the hero heading closer to the logo without changing desktop. */
+      .hero-copy {
+        padding-top: 205px;
+      }
+
+      /* Reduce oversized gaps between mobile sections. */
+      .section {
+        padding-top: 50px;
+        padding-bottom: 50px;
+      }
+
+      .entertainment-showcase {
+        gap: 18px;
+        margin-top: 28px;
+      }
+
+      .services {
+        padding-top: 42px;
+        padding-bottom: 8px;
+      }
+
+      /* Keep The Outdoor Addicts card orderly on mobile. */
+      .outdoor-addicts-photo {
+        display: block;
+        min-height: 0;
+        padding-top: 50px;
+      }
+
+      .outdoor-addicts-photo-image {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        object-position: center;
+        transform: none;
+      }
+
+      .outdoor-addicts-photo-label {
+        right: 14px;
+        bottom: 14px;
+        left: 14px;
+        padding: 12px 14px;
+      }
+
+      .outdoor-addicts-photo-label strong {
+        font-size: 1.08rem;
+      }
+
+      .outdoor-addicts-photo-label span {
+        font-size: 0.78rem;
+      }
+
+      .outdoor-addicts-copy {
+        padding: 30px 24px;
+      }
+
+      .outdoor-heading-logo {
+        width: min(100%, 300px);
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .outdoor-addicts-copy .experience-script {
+        margin-top: 4px;
+      }
+
+      .outdoor-addicts-copy .button-row {
+        gap: 10px;
+        margin-top: 20px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      /* A tighter hero for phone screens. */
+      .hero-copy {
+        padding-top: 185px;
+      }
+
+      .section {
+        padding-top: 42px;
+        padding-bottom: 42px;
+      }
+
+      .outdoor-sister-heading {
+        top: 13px;
+        left: 18px;
+        right: 18px;
+        font-size: 0.82rem;
+        letter-spacing: 0.11em;
+      }
+
+      .outdoor-addicts-photo {
+        padding-top: 48px;
+      }
+
+      .outdoor-addicts-copy {
+        padding: 26px 20px 28px;
+      }
+
+      .outdoor-heading-logo {
+        width: min(100%, 270px);
+      }
+
+      .outdoor-addicts-copy p:not(.eyebrow) {
+        font-size: 0.94rem;
+        line-height: 1.58;
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       html {
         scroll-behavior: auto;
