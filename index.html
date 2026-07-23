@@ -195,6 +195,24 @@
       backdrop-filter: blur(6px);
     }
 
+
+    .section-rope {
+      width: 100%;
+      height: 10px;
+      margin: 0;
+      background:
+        repeating-linear-gradient(
+          45deg,
+          #98642f 0,
+          #98642f 6px,
+          #d4a364 6px,
+          #d4a364 12px
+        );
+      box-shadow:
+        inset 0 2px 2px rgba(255, 255, 255, 0.28),
+        inset 0 -2px 2px rgba(65, 36, 13, 0.3);
+    }
+
     /* HEADER */
 
     .site-header {
@@ -532,7 +550,7 @@
     /* SERVICES */
 
     .services {
-      padding: 82px 0;
+      padding: 56px 0;
       background: var(--cream);
       color: var(--white);
     }
@@ -545,7 +563,7 @@
 
     .service-panel {
       display: flex;
-      min-height: 410px;
+      min-height: 360px;
       justify-content: center;
       padding: clamp(36px, 5vw, 58px);
       overflow: hidden;
@@ -625,6 +643,7 @@
     /* HOURS */
 
     .hours {
+      padding: 56px 0;
       background:
         linear-gradient(
           180deg,
@@ -789,7 +808,7 @@
     /* FACEBOOK */
 
     .facebook {
-      padding: 80px 0;
+      padding: 70px 0;
       background:
         linear-gradient(
           rgba(3, 27, 42, 0.82),
@@ -896,7 +915,7 @@
       margin-top: 7px;
       color: var(--orange);
       font-family: "Oswald", sans-serif;
-      font-size: 0.78rem;
+      font-size: 0.92rem;
       letter-spacing: 0.06em;
       text-transform: uppercase;
     }
@@ -1474,6 +1493,10 @@
       .footer-grid {
         grid-template-columns: 1fr;
       }
+
+      .section-rope {
+        height: 8px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1617,7 +1640,8 @@
         </div>
       </div>
     </section>
-<section id="specials" class="section specials">
+
+    <section id="specials" class="section specials">
       <div class="container">
         <div class="specials-heading">
           <div>
@@ -1703,6 +1727,8 @@
         </div>
       </div>
     </section>
+
+    <div class="section-rope" aria-hidden="true"></div>
 
     <section id="entertainment" class="section entertainment">
       <div class="container">
@@ -1824,6 +1850,8 @@
       </div>
     </section>
 
+    <div class="section-rope" aria-hidden="true"></div>
+
     <section class="services">
       <div class="container">
         <div class="services-grid">
@@ -1899,7 +1927,7 @@
             </span>
 
             <p>
-              Join us for lunch, dinner, cold drinks, and time by the marina.
+              
             </p>
           </div>
 
@@ -2016,7 +2044,11 @@
             alt="Da Dock Bar and Grill"
           >
 
-    
+          <p class="footer-text">
+            Waterfront dining, cold drinks, catering,
+            entertainment, and special events at Cypress
+            Cove Marina in Venice, Louisiana.
+          </p>
         </div>
 
         <div>
