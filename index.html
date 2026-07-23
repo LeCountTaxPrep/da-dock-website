@@ -889,7 +889,10 @@
       border-radius: var(--radius);
       background: var(--white);
       box-shadow: var(--shadow);
-      grid-template-columns: 1.08fr 0.92fr;
+    }
+
+    .pelicans-rest-feature {
+      grid-template-columns: 0.92fr 1.08fr;
     }
 
     .pelicans-rest-photo {
@@ -904,6 +907,14 @@
         url("assets/Bar-Downstairs.jpg")
         center center / cover
         no-repeat;
+    }
+
+    .pelicans-rest-copy {
+      order: 1;
+    }
+
+    .pelicans-rest-photo {
+      order: 2;
     }
 
     .pelicans-rest-photo-label {
@@ -967,12 +978,12 @@
     }
 
     .outdoor-addicts-feature {
-      grid-template-columns: 0.92fr 1.08fr;
+      grid-template-columns: 1.18fr 0.82fr;
     }
 
     .outdoor-addicts-photo {
       position: relative;
-      min-height: 430px;
+      min-height: 500px;
       background:
         linear-gradient(
           0deg,
@@ -1138,6 +1149,11 @@
       .pelicans-rest-feature,
       .outdoor-addicts-feature {
         grid-template-columns: 1fr;
+      }
+
+      .pelicans-rest-copy,
+      .pelicans-rest-photo {
+        order: initial;
       }
 
       .pelicans-rest-photo,
