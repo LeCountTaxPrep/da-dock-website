@@ -197,13 +197,15 @@
 
 
     .section-rope {
+      position: relative;
+      z-index: 10;
       width: 100%;
-      height: 18px;
-      margin: 0;
+      height: 24px;
+      margin: -4px 0;
       background-image: url("assets/seamless-rope-trim.png");
       background-repeat: repeat-x;
       background-position: center;
-      background-size: auto 100%;
+      background-size: auto 150%;
     }
 
     /* HEADER */
@@ -228,21 +230,21 @@
       right: 0;
       left: 0;
       z-index: 205;
-      height: 18px;
+      height: 24px;
       background-image: url("assets/seamless-rope-trim.png");
       background-repeat: repeat-x;
       background-position: center;
-      background-size: auto 100%;
+      background-size: auto 150%;
       content: "";
       pointer-events: none;
     }
 
     .site-header::before {
-      top: 0;
+      top: -4px;
     }
 
     .site-header::after {
-      bottom: 0;
+      bottom: -4px;
     }
 
     .nav-wrap {
@@ -329,13 +331,14 @@
     .hero::after {
       position: absolute;
       right: 0;
-      bottom: 0;
+      bottom: -4px;
       left: 0;
-      height: 18px;
+      z-index: 10;
+      height: 24px;
       background-image: url("assets/seamless-rope-trim.png");
       background-repeat: repeat-x;
       background-position: center;
-      background-size: auto 100%;
+      background-size: auto 150%;
       content: "";
     }
 
@@ -1535,7 +1538,9 @@
       }
 
       .section-rope {
-        height: 12px;
+        height: 16px;
+        margin: -3px 0;
+        background-size: auto 150%;
       }
     }
 
