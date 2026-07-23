@@ -907,9 +907,15 @@
       grid-template-columns: 1.2fr 1fr 1fr;
     }
 
+    .footer-grid > div:first-child {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     .footer-logo {
-      width: 135px;
-      margin-bottom: 14px;
+      width: 205px;
+      margin: 0 auto;
       filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.2));
     }
 
@@ -1105,6 +1111,16 @@
 
     .outdoor-addicts-copy {
       padding: 32px 28px;
+      text-align: center;
+    }
+
+    .outdoor-addicts-copy .experience-script {
+      width: 100%;
+      text-align: center;
+    }
+
+    .outdoor-addicts-copy .button-row {
+      justify-content: center;
     }
 
     .pelicans-rest-copy h3,
@@ -1424,6 +1440,10 @@
       .footer-grid {
         grid-template-columns: 1fr 1fr;
       }
+
+      .footer-grid > div:first-child {
+        display: none;
+      }
     }
 
     @media (max-width: 640px) {
@@ -1560,6 +1580,10 @@
 
       .footer-grid {
         grid-template-columns: 1fr;
+      }
+
+      .footer-grid > div:first-child {
+        display: none;
       }
 
       .section-rope {
